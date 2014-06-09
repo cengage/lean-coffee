@@ -4,7 +4,8 @@
  * Created by mindtap on 6/9/14.
  */
 //register services
-app.factory('socket', function($rootScope) {
+angular.module('Collabnotes.services', [])
+    .factory('socket', function($rootScope) {
     var socket = io.connect();
     return {
         on: function(eventName, callback) {
