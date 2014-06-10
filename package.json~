@@ -1,7 +1,7 @@
 {
-    "name": "sci-fa",
+    "name": "Collab Ops",
     "version": "0.0.1",
-    "description":"Super Cool Intern Facilitator App",
+    "description":"Discussion Facilitator Tool",
     "version": "0.0.1",
     "private": true,
     "dependencies":{
