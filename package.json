@@ -1,12 +1,13 @@
 {
-    "name": "sci-fa",
-    "version": "0.0.1",
-    "description":"Super Cool Intern Facilitator App",
-    "version": "0.0.1",
-    "private": true,
-    "dependencies":{
-        "express" :"3.x",
-        "socket.io":"1.0.x",
-        "mongoose": "3.8.12"
-    }
+  "name": "sci-fa",
+  "version": "0.0.1",
+  "description": "Super Cool Intern Facilitator App",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "socket.io": "1.0.x"
+  },
+  "devDependencies": {
+    "mongoose": "^3.8.12"
+  }
 }

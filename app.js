@@ -6,12 +6,13 @@ var express = require('express'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
 
-var people = {}
-
 var mongoose = require('mongoose');
-var database = require('./config/database');
+mongoose.connect('mongodb://root:root@novus.modulusmongo.net:27017/Sope5him');
 
-mongoose.connect(database.url);
+var Meeting = mongoose.model('Meeting', {
+    meetingName: String,
+    initiatorName: String
+});
 
 app.configure(function() {
     app.use(express.static(__dirname + '/public'));
