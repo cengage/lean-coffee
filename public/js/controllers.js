@@ -3,6 +3,13 @@
  * Created by mindtap on 6/9/14.
  */
 
-angular.module('Collabnotes.controllers', [])
-    .controller('Ctrl1', function($scope, socket) {})
-    .controller('Ctrl2', function($scope, socket) {});
+var app = angular.module('Collabnotes', []);
+
+app.controller('mainController', function($scope) {
+    this.meetingName = $scope.meetingName;
+
+    $scope.generateId = function(){
+      alert("Something");
+    };
+
+});
