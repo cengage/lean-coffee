@@ -9,7 +9,7 @@ app.controller('mainController', function($scope) {
     this.meetingName = $scope.meetingName;
 
     $scope.generateId = function(){
-      alert("Something");
+      alert(this.meetingName);
     };
 
 });
