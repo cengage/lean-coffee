@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Collab">
+<html ng-app="Collabnotes">
 <head lang="en">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,19 +8,22 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
     <title>Login | CollabOps</title>
-    <script type="text/javascript" src="js/Login.js"></script>
+    <!--<script type="text/javascript" src="js/Login.js"></script>-->
     <link rel="stylesheet" type="text/css" href="css/Login.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <!--<!-- Bootstrap core CSS -->
     <!--<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">-->
     <!--<!-- Custom styles for this template -->
     <!--<link href="signin.css" rel="stylesheet">-->
-    <script src="/socket.io/socket.io.js"></script>       
+    <!--<script src="/socket.io/socket.io.js"></script>       -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>       
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>       
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
-    <script src="/js/Modules.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <!--<script src="js/directives.js"></script>-->
+    <script src="js/modules.js"></script>
 </head>
 <body ng-controller="mainController">
 <div id="sides">
@@ -31,9 +34,8 @@
 
                 <h3 id="instruction1">Please create your meeting by filling out the information below</h3>
                 <br><br>
-                <input ng-model = "initiatorName" type="text" class="form-control" placeholder="Initiator Name" required autofocus>
-                <input ng-model = "meetingName" type="text" class="form-control" placeholder="Meeting Name" required>
-                {{initiatorName}} : {{meetingName}}
+                <input ng-model = "meeting.initiatorName" type="text" class="form-control" placeholder="Initiator Name" required autofocus>
+                <input ng-model = "meeting.meetingName" type="text" class="form-control" placeholder="Meeting Name" required>
                 <br><br>
                 <button class="btn btn-lg btn-primary btn-block" id="createMeeting">CREATE</button>
             </form>
@@ -41,7 +43,4 @@
     </div>
 </div>
 </body>
-<script src="js/services.js"></script>
-<script src="js/controllers.js"></script>
-<script src="js/directives.js"></script>
 </html>

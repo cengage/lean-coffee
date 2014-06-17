@@ -1,9 +1,17 @@
-'use strict';
-
 /**
  * Created by mindtap on 6/9/14.
  */
 //register services
+angular.module('meetingService', [])
+    .factory('Meetings', function ($http) {
+        return {
+            create : function(meetingData){
+                return $http.post('/api/meetings', meetingData);
+            }
+        }
+    });
+
+
 angular.module('Collabnotes.services', [])
     .factory('socket', function($rootScope) {
     var socket = io.connect();

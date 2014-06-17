@@ -1,16 +1,19 @@
-'use strict';
 /**
  * Created by mindtap on 6/9/14.
  */
 
-var app = angular.module('Collab', []);
+angular.module('meetingController', [])
 
-app.controller('mainController', function($scope) {
-    this.meetingName = $scope.meetingName;
-    this.initiatorName = $scope.initiatorName;
+    .controller('mainController', function($scope, $http, Meetings) {
 
-    $scope.generateId = function(){
-      alert("MeetingName: " + this.meetingName + " " + "InitiatorName : "+ this.initiatorName);
-    };
+        $scope.generateId = function(){
+             Meetings.create($scope.meeting)
+                .success(function(data){
+                    alert("A new meeting is created with id: " + data._id
+                        + "\n"+"Meeting Name: "+$scope.meeting.meetingName
+                        + "\n"+"Initiator Name: "+$scope.meeting.initiatorName);
+                     $scope.meeting = {};
+            });
+        };
 
-});
+    });
