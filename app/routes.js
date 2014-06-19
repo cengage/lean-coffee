@@ -25,6 +25,15 @@ module.exports = function(app){
 
     });
 
+    app.get('/api/meetings', function(req, res){
+       Meeting.find(function(err, meetings){
+          if(err)
+            res.send(err)
+
+          res.json(meetings);
+       });
+    });
+
     // application -------------------------------------------------------------
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html');
