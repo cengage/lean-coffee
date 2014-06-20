@@ -16,22 +16,28 @@ module.exports = function(app){
                 res.send(err);
             console.log(meeting);
             res.json(meeting);
-//            Meeting.find(function(err, meetings){
-//               if(err)
-//                    res.send(err)
-//               res.json(meetings);
-//            });
+
         });
 
     });
 
     app.get('/api/meetings', function(req, res){
-       Meeting.find(function(err, meetings){
+       return Meeting.find(function(err, meetings){
           if(err)
             res.send(err)
 
-          res.json(meetings);
+          res.send(meetings);
        });
+    });
+
+    app.get('/api/meetings/:id', function (req, res){
+        return Meeting.find({_id: req.params.id}, function (err, meeting) {
+            if (!err) {
+                res.send(meeting);
+            } else {
+                return console.log(err);
+            }
+        });
     });
 
     // application -------------------------------------------------------------
