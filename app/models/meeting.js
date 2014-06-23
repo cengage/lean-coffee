@@ -5,5 +5,6 @@ var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Meeting', {
    meetingName : String,
-   initiatorName : String
+   initiatorName : String,
+   createdAt : { type: Date, default: Date.now() }
 });

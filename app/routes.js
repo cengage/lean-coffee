@@ -30,7 +30,7 @@ module.exports = function(app){
        });
     });
 
-    app.get('/api/meetings/:id', function (req, res){
+    app.get('/api/meeting/:id', function (req, res){
         return Meeting.find({_id: req.params.id}, function (err, meeting) {
             if (!err) {
                 res.send(meeting);
