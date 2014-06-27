@@ -6,8 +6,6 @@ var Meeting = require('./models/meeting');
 module.exports = function(app){
 
     app.post('/api/meetings', function(req, res){
-        console.log("In Post Method");
-        console.log(req.body);
         Meeting.create({
             meetingName: req.body.meetingName,
             initiatorName: req.body.initiatorName
