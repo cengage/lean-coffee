@@ -1,0 +1,81 @@
+body {
+    background:beige !important;
+}
+
+.MyTimerButton {
+ margin-top: 10%;
+}
+
+.myTimer
+{
+    font-size: 20px;
+}
+.sticky-note {
+    position: absolute;
+}
+
+.sticky-note .title {
+    background: transparent;
+    border: none;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sticky-note .body {
+    background: transparent;
+    border: none;
+    display: block;
+}
+
+.MyUserList
+{
+    margin: 5px;
+}
+
+
+#sides{
+    background-color: black;
+    position:fixed;
+
+    left: 0px;
+    top:  0px;
+    bottom: 0px;
+    right: 0px;
+}
+
+.container1 {
+    position:fixed;
+    background-position:center;
+    /*background-image:url('http://heroeswallpapers.com/wp-content/uploads/2013/02/colorful-for-desktop.jpeg');*/
+    background-color: beige;
+    background-repeat: no-repeat;
+    z-index: 1;
+    background-size: 100%;
+    left: 55px;
+    top:  55px;
+    bottom: 55px;
+    right: 55px;
+}
+
+.container2 {
+    display: block;
+    /*this will help in aligning center horizontally*/
+    margin-left: auto;
+    margin-right: auto;
+
+
+    margin-top: auto;
+    z-index: 2;
+    background-size: 100%;
+
+    width:30%;
+    /*height:400px;*/
+    /*left: 250px;*/
+    margin-top:  10%;
+
+
+    overflow:hidden;
+    /*bottom: 20%;*/
+    /*right: 250px;*/
+}

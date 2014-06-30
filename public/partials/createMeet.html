@@ -1,0 +1,16 @@
+<div id="sides">
+    <div class="container1">
+        <div class="container2" ng-controller="mainController">
+            <form name="meetingCreation" ng-submit="generateId()">
+                <h2 class="form-signin-heading">Welcome to CollabOps!</h2>
+
+                <h3 id="instruction1">Please create your meeting by filling out the information below</h3>
+                <br><br>
+                <input ng-model = "meeting.initiatorName" type="text" class="form-control" placeholder="Initiator Name" required autofocus>
+                <input ng-model = "meeting.meetingName" type="text" class="form-control" placeholder="Meeting Name" required>
+                <br><br>
+                <button class="btn btn-lg btn-primary btn-block" id="createMeeting">CREATE</button>
+            </form>
+        </div>
+    </div>
+</div>

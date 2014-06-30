@@ -1,0 +1,63 @@
+<div id="mainDiv" ng-controller="Main">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Lean Coffee</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left">
+                    <button id="createButton" ng-click="createNote()" class="btn btn-success">Create Note</button>
+                    <div class="form-group form-group-right">
+                        <input type="text" class="form-control usernameInput" placeholder="Your UserName">
+
+                        <button id="joinButton" ng-click="userJoin()" class="btn btn-info">Join</button>
+                        <button id="LeaveButton" ng-click="userLeave()" class="btn btn-danger">Leave</button>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right" ng-controller="myController">
+                    <li class ="MyTimerButton">
+                        <button type="button" class="close" ng-click="play()">
+                            <span class="glyphicon glyphicon-play"></span>
+                        </button>
+                    </li>
+                    <li class ="MyTimerButton">
+                        <button type="button" class="close" ng-click="pause()">
+                            <span class="glyphicon glyphicon-pause"></span>
+                        </button>
+                    </li>
+                    <li class ="MyTimerButton">
+                        <button type="button" class="close" ng-click="stop()">
+                            <span class="glyphicon glyphicon-stop"></span>
+                        </button>
+                    </li>
+                    <li><a href="#"><div class="myTimer">{{timercounter}}</div></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="row">
+        <div class="col-md-3 panel panel-default">
+            <div class="panel-heading">User List</div>
+            <div class="panel-body col-md-3">
+                <div chat-list ng-repeat="user in users" user="user">
+                    {{user.username}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">I am left</div>
+        <div class="col-md-3">I am middle</div>
+        <div class="col-md-3">I am right</div>
+    </div>
+    <div sticky-note ng-repeat="note in notes" note="note" class="alert alert-success sticky-note" ondelete="deleteNote(id)">
+        <button type="button" class="close" ng-click="deleteNote(note.id)">&times;</button>
+        <input ng-model="note.title" ng-change="updateNote(note)" type="text" class="title" >
+        <textarea ng-model="note.body" ng-change="updateNote(note)" class="body">{{note.body}}</textarea>
+        <button type="button" class="close"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <span class="close">{{note.counter}}</span>
+        <button type="button" class="close"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+    </div>
+
+</div>

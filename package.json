@@ -1,0 +1,19 @@
+{
+  "name": "AVK",
+  "description": "Demo App to fulfil the JIRA tasks",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "mongodb": "*",
+    "mongoose": "^3.8.12",
+    "socket.io": "1.0.x",
+    "angular-route":"~1.2.x"
+  },
+  "scripts": {
+    "start": "app.js"
+  },
+  "engines": {
+    "node": "0.8.x"
+  }
+}
