@@ -88,5 +88,4 @@ io.sockets.on('connection', function(socket) {
     });
 });
 
-server.listen(process.env.PORT || 4545ls
-);
+server.listen(process.env.PORT || 2789);
