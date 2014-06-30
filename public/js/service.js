@@ -7,14 +7,7 @@
 angular.module('meetingService', [])
     .factory('Meetings', function ($http) {
         try{
-        console.log("Meeting service");
-        return {
-            create : function(meetingData){
-                console.log('well, here we go');
-                return $http.post('/api/meetings', meetingData);
-                }
-
-        }
+            return {create : function(meetingData){return $http.post('/api/meetings', meetingData);}}
         }
         catch(err)
         {console.log(err.message);}

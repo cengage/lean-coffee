@@ -4,16 +4,16 @@
  */
 angular.module('meetingController', [])
 
-    .controller('mainController', function($scope, $http, Meetings) {
+    .controller('mainController', function($scope, $http, Meetings, $location) {
 
         $scope.generateId = function(){
-            console.log("Guess who!");
             Meetings.create($scope.meeting)
                 .success(function(data){
                     alert("A new meeting is created with id: " + data._id
                         + "\n"+"Meeting Name: "+$scope.meeting.meetingName
                         + "\n"+"Initiator Name: "+$scope.meeting.initiatorName);
                     $scope.meeting = {};
+                    $location.path('/Meeting');
                 })
                 .error(function(err){
                     console.log(err);
