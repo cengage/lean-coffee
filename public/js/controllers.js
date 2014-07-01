@@ -4,16 +4,16 @@
  */
 angular.module('meetingController', [])
 
-    .controller('mainController', function($scope, $http, Meetings, $location) {
+    .controller('mainController', function($scope, $http, Meeting, $location) {
 
         $scope.generateId = function(){
-            Meetings.create($scope.meeting)
+            Meeting.create($scope.meeting)
                 .success(function(data){
                     alert("A new meeting is created with id: " + data._id
                         + "\n"+"Meeting Name: "+$scope.meeting.meetingName
                         + "\n"+"Initiator Name: "+$scope.meeting.initiatorName);
                     $scope.meeting = {};
-                    $location.path('/Meeting');
+                    $location.path('/Meeting/' + data._id);
                 })
                 .error(function(err){
                     console.log(err);
@@ -23,14 +23,11 @@ angular.module('meetingController', [])
     });
 
 angular.module('leanNotes.controllers', [])
-.controller('Main', function($scope, socket, $routeParams, Meeting) {
+.controller('Main', function($scope, socket, $routeParams, Meeting, $location) {
     $scope.notes = [];
     $scope.users =[];
-    var $usernameInput = $('.usernameInput'); // Input for username
-    var username;
 
     $scope.meeting = {};
-    //$scope.meeting._id = $routeParams.meetingId;
     $scope.meeting.users = [];
 
     Meeting.getMeeting($routeParams.meetingId)
@@ -39,6 +36,7 @@ angular.module('leanNotes.controllers', [])
             alert("Welcome to meeting with Id : " + $scope.meeting._id);
         })
         .error(function(err){
+            $location.path('/Meeting');
            alert("This is not a valid meeting, please check the link")
         });
 
@@ -72,6 +70,12 @@ angular.module('leanNotes.controllers', [])
 
         $scope.meeting.users.push(user);
         $scope.meeting.currentUser = user;
+
+        Meeting.updateUsers($scope.meeting)
+            .success(function (data) {
+                alert("Hi, " + user.name + "!!!");
+                socket.emit('userJoin', $scope.meeting.users);
+            });
 
     };
     $scope.createNote = function() {
