@@ -8,7 +8,7 @@ module.exports = function(app){
         //res.send(req.body);
        // console.log(req.meetingName);
 
-              Meeting.create({
+        Meeting.create({
             meetingName: req.body.meetingName,
             initiatorName: req.body.initiatorName
         }, function (err, meeting) {
@@ -31,15 +31,26 @@ module.exports = function(app){
     });
 
     app.get('/api/meeting/:id', function (req, res){
-
-        return Meeting.find({_id: req.params.id}, function (err, meeting) {
-            if (!err) {
-                res.send(meeting);
-            } else {
-                return console.log(err);
+        return Meeting.findOne({_id: req.params.id}, function (err, data) {
+            if (err){
+                res.statusCode = 404;
+                return res.send('Error 404: No meeting found with this ID');
             }
+            res.json(data);
         });
     });
+
+    app.put('/api/user', function(req, res){
+        Meeting.update({_id : req.body._id}, {
+            //    $set : {users : req.body.users}
+            $push : { users : req.body.currentUser}
+        }, function (err, meeting) {
+            if(err)
+                res.send(err);
+            res.json(meeting);
+        });
+    });
+
 
     // application -------------------------------------------------------------
     app.get('/', function(req, res) {

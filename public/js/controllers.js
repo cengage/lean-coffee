@@ -21,12 +21,27 @@ angular.module('meetingController', [])
         };
 
     });
+
 angular.module('leanNotes.controllers', [])
-.controller('Main', function($scope, socket) {
+.controller('Main', function($scope, socket, $routeParams, Meeting) {
     $scope.notes = [];
     $scope.users =[];
     var $usernameInput = $('.usernameInput'); // Input for username
     var username;
+
+    $scope.meeting = {};
+    //$scope.meeting._id = $routeParams.meetingId;
+    $scope.meeting.users = [];
+
+    Meeting.getMeeting($routeParams.meetingId)
+        .success(function(data){
+            $scope.meeting = data;
+            alert("Welcome to meeting with Id : " + $scope.meeting._id);
+        })
+        .error(function(err){
+           alert("This is not a valid meeting, please check the link")
+        });
+
 
     // Incoming
     socket.on('onNoteCreated', function(data) {
@@ -45,16 +60,19 @@ angular.module('leanNotes.controllers', [])
     // Outgoing
 
     $scope.userJoin = function(){
-       // alert('about to prep object user for push into users');
-        var user ={
-            id:new Date().getTime(),
-            username: $('.usernameInput').val().trim()
+
+        if($scope.meeting._id == null){
+            alert("Meeting is not validated yet");
+        }
+
+        var user = {
+            name : $(".usernameInput").val(),
+            votesRemaining : 5
         };
-        //alert('I should push user into the array');
-        //alert($usernameInput);
-        $scope.users.push(user);
-        //alert('Yo I am emitting user joining event');
-        socket.emit('userJoin', $scope.users);
+
+        $scope.meeting.users.push(user);
+        $scope.meeting.currentUser = user;
+
     };
     $scope.createNote = function() {
         //alert('about to prep object note for push into notes');

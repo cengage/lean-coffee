@@ -5,13 +5,25 @@
 
 
 angular.module('meetingService', [])
-    .factory('Meetings', function ($http) {
+    .factory('Meeting', function ($http) {
         try{
-            return {create : function(meetingData){return $http.post('/api/meetings', meetingData);}}
+            return {
+                create : function(meetingData) {
+                    return $http.post('/api/meetings', meetingData);
+                },
+                getMeeting: function(meetingId) {
+                    return $http.get('/api/meeting/'+ meetingId);
+                },
+                updateUsers : function(meeting) {
+                    return $http.put('/api/user', meeting);
+                }
+            }
         }
-        catch(err)
-        {console.log(err.message);}
+        catch(err){
+            console.log(err.message);
+        }
     });
+
 angular.module('leanNotes.services', [])
 .factory('socket', function($rootScope) {
     var socket = io.connect();

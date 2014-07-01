@@ -3,23 +3,16 @@ var express = require('express'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server),
     mongoose = require('mongoose'),
-    schema = mongoose.Schema,
-    User= new schema({
-        userName    :String,
-        createdDate :{type:Date,default:Date.now}
-    });
+    schema = mongoose.Schema;
+
 var database = require('./public/js/database');
+
 mongoose.connect(database.url, function(err){
     if(err)
         throw  err;
     else
-        console.log("all is well")
+        console.log("MongoDB is up and running")
 });
-
-
-var UserListModel = mongoose.model('User',User)
-
-//var people = {};
 
 app.configure('development',function() {
     app.use('/public', express.static(__dirname + '/public'));
@@ -47,14 +40,7 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('userJoin', function(data) {
         console.log('emit user joining event');
-        var newUser = new UserListModel({userName:data});
-        newUser.save(function(err){
-            if(err)
-                throw  err;
-            else
-                people = data;
-            socket.broadcast.emit('onUserJoin', people);
-        });
+        socket.broadcast.emit('onUserJoin', data);
 
     });
 
@@ -88,4 +74,6 @@ io.sockets.on('connection', function(socket) {
     });
 });
 
-server.listen(process.env.PORT || 4545);
+server.listen(process.env.PORT || 4545, function(){
+    console.log("Lean Coffee is running at port 4545");
+});

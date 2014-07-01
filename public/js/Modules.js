@@ -11,13 +11,13 @@ angular.module('leanNotes', [
         //$locationProvider.html5Mode(true);
         $routeProvider
 
-        .when('/Meeting',{
+        .when('/Meeting/:meetingId',{
             templateUrl:'/public/partials/Meeting.html',
             controller:'Main'
         })
         .when('/',{
             templateUrl:'/public/partials/createMeet.html',
-            controller:'Main'
+            controller:'mainController'
         })
         .otherwise({
                 templateUrl:'/public/partials/error.html',
