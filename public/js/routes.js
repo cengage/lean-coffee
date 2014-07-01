@@ -5,8 +5,6 @@ var Meeting = require('./meeting.js');
 
 module.exports = function(app){
     app.post('/api/meetings', function(req, res){
-        //res.send(req.body);
-       // console.log(req.meetingName);
 
         Meeting.create({
             meetingName: req.body.meetingName,
@@ -22,7 +20,6 @@ module.exports = function(app){
     });
 
     app.get('/api/meetings', function(req, res){
-        console.log("I am also here");
        return Meeting.find(function(err, meetings){
           if(err)
             res.send(err)

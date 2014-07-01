@@ -73,7 +73,7 @@ angular.module('leanNotes.controllers', [])
 
         Meeting.updateUsers($scope.meeting)
             .success(function (data) {
-                alert("Hi, " + user.name + "!!!");
+                alert("Hi " + user.name + "!!!");
                 socket.emit('userJoin', $scope.meeting.users);
             });
 
