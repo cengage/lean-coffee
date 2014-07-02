@@ -10,7 +10,7 @@ angular.module('leanNotes.directives', [])
             snap: ".row,.sticky-note",
             stop: function(event, ui) {
                 socket.emit('moveNote', {
-                    id: scope.note.id,
+                    _id: scope.note._id,
                     x: ui.position.left,
                     y: ui.position.top
                 });
@@ -19,7 +19,7 @@ angular.module('leanNotes.directives', [])
 
         socket.on('onNoteMoved', function(data) {
             // Update if the same note
-            if(data.id == scope.note.id) {
+            if(data._id == scope.note._id) {
                 element.animate({
                     left: data.x,
                     top: data.y
@@ -52,7 +52,7 @@ angular.module('leanNotes.directives', [])
 
         $scope.deleteNote = function(id) {
             $scope.ondelete({
-                id: id
+                _id: _id
             });
         };
     };

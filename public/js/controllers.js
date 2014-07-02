@@ -32,7 +32,7 @@ angular.module('leanNotes.controllers', [])
     Meeting.getMeeting($routeParams.meetingId)
         .success(function(data){
             $scope.meeting = data;
-            alert("Welcome to meeting with Id : " + $scope.meeting._id);
+           // alert("Welcome to meeting with Id : " + $scope.meeting._id);
         })
         .error(function(err){
             $location.path('/Meeting');
@@ -50,8 +50,8 @@ angular.module('leanNotes.controllers', [])
     });
 
     socket.on('onUserJoin',function(data){
-        alert('receive user joining event' );
-        alert(data);
+        //alert('receive user joining event' );
+        //alert(data);
         $scope.meeting.users = data;
         });
     // Outgoing
@@ -72,10 +72,12 @@ angular.module('leanNotes.controllers', [])
 
         Meeting.updateUsers($scope.meeting)
             .success(function (data) {
-                alert("Hi " + user.name + "!!!");
+                //alert("Hi " + user.name + "!!!");
                 socket.emit('userJoin', $scope.meeting.users);
             });
-
+        $(".usernameInput").val('');
+        $(".usernameInput").hide( "slow");
+        $("#joinButton").hide( "slow");
     };
     $scope.createNote = function() {
         //alert('about to prep object note for push into notes');
@@ -149,9 +151,4 @@ angular.module('leanNotes.controllers', [])
         $scope.timercounter = 10;
         socket.emit('stop');
     }
-})
-
-.controller('lifeCtrl',function($scope,$routeParams){
-    $scope.name='lifeCtrl';
-    $scope.params=$routeParams;
 });
