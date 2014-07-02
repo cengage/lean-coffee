@@ -8,12 +8,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left">
-                    <button id="createButton" ng-click="createNote()" class="btn btn-success">Create Note</button>
+                    <button id="createButton" ng-click="createNote()" class="btn btn-success" ng-show="meeting.currentUser!=null">Create Note</button>
                     <div class="form-group form-group-right">
-                        <input type="text" class="form-control usernameInput" placeholder="Your UserName">
+                        <input type="text" class="form-control usernameInput" placeholder="Enter your name">
 
                         <button id="joinButton" ng-click="userJoin()" class="btn btn-info">Join</button>
-                        <button id="LeaveButton" ng-click="userLeave()" class="btn btn-danger">Leave</button>
+                        <button id="LeaveButton" ng-click="userLeave()" class="btn btn-danger" ng-show="meeting.currentUser!=null">Leave</button>
+                        <!--<label ng-show="meeting.currentUser!=null">Logged in as: {{meeting.currentUser.name}}</label>-->
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right" ng-controller="myController">
@@ -50,6 +51,15 @@
         <div class="col-md-3">I am left</div>
         <div class="col-md-3">I am middle</div>
         <div class="col-md-3">I am right</div>
+    </div>
+    <div sticky-note-create id="noteInitial" note="note" class="alert alert-success sticky-note" ng-hide="true">
+        <button type="button" class="close" ng-click="discardNote()">&times;</button>
+        <input id="title" type="text" class="title" placeholder="Enter Topic Title">
+        <textarea id="content" class="body" placeholder="Enter Topic Text Here..">{{note.content}}</textarea>
+        <!--<label>Created By: {{note.assignedTo.name}}</label>-->
+        <!--<button type="button" class="close"><span class="glyphicon glyphicon-thumbs-up"></span></button>-->
+        <!--<span class="close">{{note.votes}}</span>-->
+        <button type="button" class="close" ng-click="saveNote()"><span class="glyphicon">Save</span></button>
     </div>
     <div sticky-note ng-repeat="note in notes" note="note" class="alert alert-success sticky-note" ondelete="deleteNote(_id)">
         <button type="button" class="close" ng-click="deleteNote(note._id)">&times;</button>

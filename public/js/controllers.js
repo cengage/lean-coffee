@@ -84,31 +84,43 @@ angular.module('leanNotes.controllers', [])
         if($scope.meeting.currentUser == null){
             alert('Please enter Username before creating a topic');
         }else {
-            var note = {
-                _id: new Date().getTime(),
-                title: 'Note Title',
-                content: 'Note Content',
-                assignedTo: $scope.meeting.currentUser,
-                votes:0
-            };
-            //alert('I should push note into the array');
-            $scope.notes.push(note);
-            //alert('Yo I am emitting note creating event');
-            socket.emit('createNote', note);
+            $('#noteInitial').show();
         }
     };
 
-    $scope.deleteNote = function(id) {
-        $scope.handleDeletedNoted(id);
-
-        socket.emit('deleteNote', {id: id});
+    $scope.saveNote = function() {
+        $scope.meeting.currentTopic = {
+            _id: new Date().getTime(),
+            title: $("#title").val(),
+            content: $("#content").val(),
+            status: 'Ready',
+            assignedTo: $scope.meeting.currentUser,
+            votes:0
+        };
+        $scope.notes.push($scope.meeting.currentTopic);
+        socket.emit('createNote', $scope.meeting.currentTopic);
+        $('#noteInitial').hide();
+        $("#title").val("");
+        $("#content").val("");
     };
-    $scope.handleDeletedNoted = function(id) {
+
+    $scope.discardNote = function() {
+        $('#noteInitial').hide();
+        $("#title").val("");
+        $("#content").val("");
+    };
+
+    $scope.deleteNote = function(_id) {
+        $scope.handleDeletedNoted(_id);
+
+        socket.emit('deleteNote', {_id: _id});
+    };
+    $scope.handleDeletedNoted = function(_id) {
         var oldNotes = $scope.notes,
             newNotes = [];
 
         angular.forEach(oldNotes, function(note) {
-            if(note.id !== id) newNotes.push(note);
+            if(note._id !== _id) newNotes.push(note);
         });
         $scope.notes = newNotes;
     }
