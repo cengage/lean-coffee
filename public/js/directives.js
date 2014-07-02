@@ -28,7 +28,7 @@ angular.module('leanNotes.directives', [])
         });
 
         // Some DOM initiation to make it nice
-        element.css('left', '10px');
+        element.css('left', '50px');
         element.css('top', '20px');
         element.hide().fadeIn();
     };
@@ -37,10 +37,11 @@ angular.module('leanNotes.directives', [])
         // Incoming
         socket.on('onNoteUpdated', function(data) {
             // Update if the same note
-            if(data.id == $scope.note.id) {
+            if(data._id == $scope.note._id) {
                 $scope.note.title = data.title;
-                $scope.note.body = data.body;
-                $scope.note.counter = data.counter;
+                $scope.note.content = data.content;
+                $scope.note.counter = data.votes;
+                $scope.note.assignedTo = data.assignedTo;
             }
         });
 

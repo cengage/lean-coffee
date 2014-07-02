@@ -25,7 +25,6 @@ angular.module('meetingController', [])
 angular.module('leanNotes.controllers', [])
 .controller('Main', function($scope, socket, $routeParams, Meeting, $location) {
     $scope.notes = [];
-    $scope.users =[];
 
     $scope.meeting = {};
     $scope.meeting.users = [];
@@ -53,7 +52,7 @@ angular.module('leanNotes.controllers', [])
     socket.on('onUserJoin',function(data){
         alert('receive user joining event' );
         alert(data);
-        $scope.users=data;
+        $scope.meeting.users = data;
         });
     // Outgoing
 
@@ -80,16 +79,21 @@ angular.module('leanNotes.controllers', [])
     };
     $scope.createNote = function() {
         //alert('about to prep object note for push into notes');
-        var note = {
-            id: new Date().getTime(),
-            title: 'Note Title',
-            body: 'Note Content',
-            counter:0
-        };
-        //alert('I should push note into the array');
-        $scope.notes.push(note);
-        //alert('Yo I am emitting note creating event');
-        socket.emit('createNote', note);
+        if($scope.meeting.currentUser == null){
+            alert('Please enter Username before creating a topic');
+        }else {
+            var note = {
+                _id: new Date().getTime(),
+                title: 'Note Title',
+                content: 'Note Content',
+                assignedTo: $scope.meeting.currentUser,
+                votes:0
+            };
+            //alert('I should push note into the array');
+            $scope.notes.push(note);
+            //alert('Yo I am emitting note creating event');
+            socket.emit('createNote', note);
+        }
     };
 
     $scope.deleteNote = function(id) {
