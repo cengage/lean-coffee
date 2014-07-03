@@ -24,10 +24,10 @@ angular.module('meetingController', [])
 
 angular.module('leanNotes.controllers', [])
 .controller('Main', function($scope, socket, $routeParams, Meeting, $location) {
-    $scope.notes = [];
-
     $scope.meeting = {};
+    $scope.meeting.topics = [];
     $scope.meeting.users = [];
+
 
     Meeting.getMeeting($routeParams.meetingId)
         .success(function(data){
@@ -42,11 +42,11 @@ angular.module('leanNotes.controllers', [])
 
     // Incoming
     socket.on('onNoteCreated', function(data) {
-        $scope.notes.push(data);
+        $scope.meeting.topics.push(data);
     });
 
     socket.on('onNoteDeleted', function(data) {
-        $scope.handleDeletedNoted(data.id);
+        $scope.handleDeletedNoted(data.title);
     });
 
     socket.on('onUserJoin',function(data){
@@ -60,24 +60,27 @@ angular.module('leanNotes.controllers', [])
 
         if($scope.meeting._id == null){
             alert("Meeting is not validated yet");
+        }else if($(".usernameInput").val()==""){
+            alert("Enter your name first");
+        }else{
+            var user = {
+                name : $(".usernameInput").val(),
+                votesRemaining : 5
+            };
+
+            $scope.meeting.currentUser = user;
+
+            Meeting.updateUsers($scope.meeting)
+                .success(function (data) {
+                    //alert("Hi " + user.name + "!!!");
+                    $scope.meeting.users.push(user);
+                    socket.emit('userJoin', $scope.meeting.users);
+                });
+            $(".usernameInput").val('');
+            $(".usernameInput").hide( "slow");
+            $("#joinButton").hide( "slow");
         }
 
-        var user = {
-            name : $(".usernameInput").val(),
-            votesRemaining : 5
-        };
-
-        $scope.meeting.users.push(user);
-        $scope.meeting.currentUser = user;
-
-        Meeting.updateUsers($scope.meeting)
-            .success(function (data) {
-                //alert("Hi " + user.name + "!!!");
-                socket.emit('userJoin', $scope.meeting.users);
-            });
-        $(".usernameInput").val('');
-        $(".usernameInput").hide( "slow");
-        $("#joinButton").hide( "slow");
     };
     $scope.createNote = function() {
         //alert('about to prep object note for push into notes');
@@ -89,16 +92,22 @@ angular.module('leanNotes.controllers', [])
     };
 
     $scope.saveNote = function() {
-        $scope.meeting.currentTopic = {
+
+        var topic = {
             _id: new Date().getTime(),
             title: $("#title").val(),
             content: $("#content").val(),
             status: 'Ready',
-            assignedTo: $scope.meeting.currentUser,
+            assignedTo: $scope.meeting.currentUser.name,
             votes:0
         };
-        $scope.notes.push($scope.meeting.currentTopic);
-        socket.emit('createNote', $scope.meeting.currentTopic);
+        $scope.meeting.currentTopic = topic;
+        Meeting.updateNotes($scope.meeting)
+            .success(function(data){
+                console.log(data);
+                $scope.meeting.topics.push(topic);
+                socket.emit('createNote', topic);
+            });
         $('#noteInitial').hide();
         $("#title").val("");
         $("#content").val("");
@@ -110,19 +119,19 @@ angular.module('leanNotes.controllers', [])
         $("#content").val("");
     };
 
-    $scope.deleteNote = function(_id) {
-        $scope.handleDeletedNoted(_id);
+    $scope.deleteNote = function(title) {
+        $scope.handleDeletedNoted(title);
 
-        socket.emit('deleteNote', {_id: _id});
+        socket.emit('deleteNote', {title: title});
     };
-    $scope.handleDeletedNoted = function(_id) {
-        var oldNotes = $scope.notes,
+    $scope.handleDeletedNoted = function(title) {
+        var oldNotes = $scope.meeting.topics,
             newNotes = [];
 
         angular.forEach(oldNotes, function(note) {
-            if(note._id !== _id) newNotes.push(note);
+            if(note.title !== title) newNotes.push(note);
         });
-        $scope.notes = newNotes;
+        $scope.meeting.topics = newNotes;
     }
 })
 .controller('myController',function($scope,$timeout,socket)

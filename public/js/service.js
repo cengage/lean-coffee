@@ -16,6 +16,9 @@ angular.module('meetingService', [])
                 },
                 updateUsers : function(meeting) {
                     return $http.put('/api/user', meeting);
+                },
+                updateNotes : function(meeting) {
+                    return $http.put('/api/topic', meeting);
                 }
             }
         }

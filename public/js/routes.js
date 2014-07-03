@@ -39,7 +39,6 @@ module.exports = function(app){
 
     app.put('/api/user', function(req, res){
         Meeting.update({_id : req.body._id}, {
-            //    $set : {users : req.body.users}
             $push : { users : req.body.currentUser}
         }, function (err, meeting) {
             if(err)
@@ -48,6 +47,15 @@ module.exports = function(app){
         });
     });
 
+    app.put('/api/topic', function(req, res){
+        Meeting.update({_id: req.body._id}, {
+            $push : { topics : req.body.currentTopic}
+        }, function(err, meeting) {
+            if(err)
+                res.send(err);
+            res.json(meeting);
+        })
+    });
 
     // application -------------------------------------------------------------
     app.get('/', function(req, res) {

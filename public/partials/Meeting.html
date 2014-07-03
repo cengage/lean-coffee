@@ -48,9 +48,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">I am left</div>
-        <div class="col-md-3">I am middle</div>
-        <div class="col-md-3">I am right</div>
+        <div class="col-md-3"><h2>Ready</h2></div>
+        <div class="col-md-3"><h2>Doing</h2></div>
+        <div class="col-md-3"><h2>Done</h2></div>
     </div>
     <div sticky-note-create id="noteInitial" note="note" class="alert alert-success sticky-note" ng-hide="true">
         <button type="button" class="close" ng-click="discardNote()">&times;</button>
@@ -61,11 +61,11 @@
         <!--<span class="close">{{note.votes}}</span>-->
         <button type="button" class="close" ng-click="saveNote()"><span class="glyphicon">Save</span></button>
     </div>
-    <div sticky-note ng-repeat="note in notes" note="note" class="alert alert-success sticky-note" ondelete="deleteNote(_id)">
-        <button type="button" class="close" ng-click="deleteNote(note._id)">&times;</button>
+    <div sticky-note ng-repeat="note in meeting.topics" note="note" class="alert alert-success sticky-note" ondelete="deleteNote(title)">
+        <button type="button" class="close" ng-click="deleteNote(note.title)">&times;</button>
         <input ng-model="note.title" ng-change="updateNote(note)" type="text" class="title" >
         <textarea ng-model="note.content" ng-change="updateNote(note)" class="body">{{note.content}}</textarea>
-        <label>Created By: {{note.assignedTo.name}}</label>
+        <label>Created By: {{note.assignedTo}}</label>
         <button type="button" class="close"><span class="glyphicon glyphicon-thumbs-up"></span></button>
         <span class="close">{{note.votes}}</span>
         <button type="button" class="close"><span class="glyphicon glyphicon-thumbs-down"></span></button>
