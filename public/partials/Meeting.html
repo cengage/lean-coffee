@@ -1,4 +1,5 @@
-<div id="mainDiv" ng-controller="Main">
+
+<div id="mainDiv"  ng-controller="Main">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -14,6 +15,7 @@
                         <input type="email" class="form-control userEmail" placeholder="Enter your email">
                         <button id="joinButton" ng-click="userJoin()" class="btn btn-info">Join</button>
                         <button id="leaveButton" ng-click="userLeave()" class="btn btn-danger" ng-hide="true">Leave</button>
+
                         <!--<label ng-show="meeting.currentUser!=null">Logged in as: {{meeting.currentUser.name}}</label>-->
                     </div>
                 </form>
@@ -34,23 +36,30 @@
                         </button>
                     </li>
                     <li><a href="#"><div class="myTimer">{{timercounter}}</div></a></li>
+
                 </ul>
+                <!-- Side Menu -->
+                <a id="menu-toggle" class="btn btn-primary btn-lg toggle"><i class="glyphicon glyphicon-align-justify"></i></a>
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav">
+                        <a id="menu-close" href="#" class="btn btn-danger glyphicon glyphicon-remove pull-right toggle"><i class="fa fa-times"></i></a>
+                        <li class="sidebar-brand"><a>User List</a>
+                        </li>
+                        <li><a ng-repeat="user in meeting.users" user="user">
+                            {{user.name}}</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- /Side Menu -->
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-
     <div class="row">
-        <div class="col-md-3 panel panel-default">
-            <div class="panel-heading">User List</div>
-            <div class="panel-body col-md-3">
-                <div chat-list ng-repeat="user in meeting.users" user="user">
-                    {{user.name}}
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3"><h2>Ready</h2></div>
-        <div class="col-md-3"><h2>Doing</h2></div>
-        <div class="col-md-3"><h2>Done</h2></div>
+            <div class="col-md-4" style="background-color: grey"><h2>Ready</h2></div>
+            <div class="col-md-4" style="background-color: darkslategrey"><h2>Doing</h2></div>
+            <div class="col-md-4" style="background-color: gray"><h2>Done</h2></div>
+
     </div>
     <div sticky-note-create id="noteInitial" note="note" class="alert alert-success sticky-note" ng-hide="true">
         <button type="button" class="close" ng-click="discardNote()">&times;</button>
@@ -72,3 +81,19 @@
     </div>
 
 </div>
+
+
+<!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+<script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+</script>
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        console.log("I was clicked");
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+</script>
