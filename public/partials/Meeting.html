@@ -3,17 +3,17 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Lean Coffee</a>
+                <a class="navbar-brand" href="#">{{meeting.meetingName}}</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left">
-                    <button id="createButton" ng-click="createNote()" class="btn btn-success" ng-show="meeting.currentUser!=null">Create Note</button>
+                    <button id="createButton" ng-click="createNote()" class="btn btn-success" ng-hide="true">Create Note</button>
                     <div class="form-group form-group-right">
                         <input type="text" class="form-control usernameInput" placeholder="Enter your name">
-
+                        <input type="email" class="form-control userEmail" placeholder="Enter your email">
                         <button id="joinButton" ng-click="userJoin()" class="btn btn-info">Join</button>
-                        <button id="LeaveButton" ng-click="userLeave()" class="btn btn-danger" ng-show="meeting.currentUser!=null">Leave</button>
+                        <button id="leaveButton" ng-click="userLeave()" class="btn btn-danger" ng-hide="true">Leave</button>
                         <!--<label ng-show="meeting.currentUser!=null">Logged in as: {{meeting.currentUser.name}}</label>-->
                     </div>
                 </form>

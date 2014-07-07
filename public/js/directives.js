@@ -75,8 +75,8 @@ angular.module('leanNotes.directives', [])
                 });
 
             // Some DOM initiation to make it nice
-//            element.css('left', '50px');
-//            element.css('top', '20px');
+            element.css('left', '50px');
+            element.css('top', '20px');
             element.hide().fadeIn();
             element.css("background-color", '#99CCFF')
         };

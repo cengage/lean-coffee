@@ -2,8 +2,8 @@ var express = require('express'),
     app = express(),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server),
-    mongoose = require('mongoose'),
-    schema = mongoose.Schema;
+    mongoose = require('mongoose');
+//    schema = mongoose.Schema;
 
 var database = require('./public/js/database');
 

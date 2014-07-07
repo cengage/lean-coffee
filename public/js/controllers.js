@@ -19,7 +19,6 @@ angular.module('meetingController', [])
                     console.log(err);
                 });
         };
-
     });
 
 angular.module('leanNotes.controllers', [])
@@ -64,6 +63,7 @@ angular.module('leanNotes.controllers', [])
             alert("Enter your name first");
         }else{
             var user = {
+                email: $(".userEmail").val(),
                 name : $(".usernameInput").val(),
                 votesRemaining : 5
             };
@@ -75,10 +75,17 @@ angular.module('leanNotes.controllers', [])
                     //alert("Hi " + user.name + "!!!");
                     $scope.meeting.users.push(user);
                     socket.emit('userJoin', $scope.meeting.users);
-                });
+                })
+                .error(function(error){
+                    alert(error);
+                })
             $(".usernameInput").val('');
+            $(".userEmail").val('');
             $(".usernameInput").hide( "slow");
+            $(".userEmail").hide("slow");
             $("#joinButton").hide( "slow");
+            $("#createButton").show("slow");
+            $("#leaveButton").show("slow");
         }
 
     };
