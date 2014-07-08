@@ -68,6 +68,15 @@ angular.module('leanNotes.controllers', [])
                 votesRemaining : 5
             };
 
+            for(var i = 0; i < $scope.meeting.users.length; i++)
+            {
+                if($scope.meeting.users[i].email == user.email)
+                {
+                    alert("User with Email Id already exists");
+                    return;
+                }
+            }
+
             $scope.meeting.currentUser = user;
 
             Meeting.updateUsers($scope.meeting)
