@@ -148,7 +148,7 @@ angular.module('leanNotes.controllers', [])
                 $scope.meeting = data;
                 $scope.meeting.currentUser = currentUser;
                 topic = $scope.meeting.topics.slice(-1)[0];
-                alert(topic._id);
+                //alert(topic._id);
                 socket.emit('createNote', topic);
             });
         $('#noteInitial').hide();

@@ -12,16 +12,13 @@ angular.module('leanNotes.directives', [])
 
             }
         });
-
         // Some DOM initiation to make it nice
-//        element.css('left', '300px');
-//        element.css('top', '100px');
         element.hide().fadeIn();
     };
 
     return {
-        restrict: 'A'
-//        link: linker
+        restrict: 'A',
+       link: linker
     };
 })
 
