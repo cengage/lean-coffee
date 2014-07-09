@@ -134,7 +134,6 @@ angular.module('leanNotes.controllers', [])
         $scope.meeting.currentTopic = topic;
         Meeting.updateNotes($scope.meeting)
             .success(function(data){
-                alert(data._id);
                 $scope.meeting = data;
                 $scope.meeting.currentUser = currentUser;
                 socket.emit('createNote', $scope.meeting.topics.slice(-1));
@@ -158,11 +157,19 @@ angular.module('leanNotes.controllers', [])
     $scope.handleDeletedNoted = function(_id) {
         var oldNotes = $scope.meeting.topics,
             newNotes = [];
-
         angular.forEach(oldNotes, function(note) {
             if(note._id !== _id) newNotes.push(note);
         });
         $scope.meeting.topics = newNotes;
+    };
+
+    $scope.voteUp = function(note) {
+        note.votes += 1;
+        $scope.meeting.currentTopic = note;
+        Meeting.incVoteTopic($scope.meeting)
+            .success(function(data){
+                //Yet to handle real time transfer to other clients
+            });
     };
 
 })

@@ -57,6 +57,26 @@ module.exports = function(app){
         })
     });
 
+    app.put('/api/topic/vote', function(req, res){
+        Meeting.update( { _id: req.body._id, "topics._id": req.body.currentTopic._id }, {
+            $inc: { "topics.$.votes" : 1 }
+        }, function(err, meeting) {
+            if(err)
+                res.send(err);
+            res.json(meeting);
+        } )
+    });
+
+    app.put('/api/topic/remove', function(req, res){
+        Meeting.update( { _id: 1 }, { $pull: {
+            topics: { "topics._id": req.body.currentTopic._id } }
+        }, function(err, meeting) {
+            if(err)
+                res.send(err);
+            res.json(meeting);
+        } )
+    });
+
     // application -------------------------------------------------------------
     app.get('/', function(req, res) {
         res.sendfile('./public/index.html');

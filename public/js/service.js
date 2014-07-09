@@ -23,6 +23,9 @@ angular.module('meetingService', [])
                 incVoteTopic : function(meeting) {
                     return $http.put('/api/topic/vote', meeting);
                 },
+                deleteTopic: function(meeting) {
+                    return $http.put('/api/topic/remove', meeting);
+                },
                 changeTopicStatus : function(meeting){
                     return $http.put('/api/topic/changeStatus', meeting);
                 }
