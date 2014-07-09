@@ -2,6 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1970dea9-e148-4732-8531-626b02bb7383" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/basic-auth/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/ms/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/basic-auth/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/ms/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/basic-auth/Readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/basic-auth/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/basic-auth/test/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/ms/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/basic-auth/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/ms/package.json" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Makefile" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Release/.deps/Release/bson.node.d" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Release/.deps/Release/obj.target/bson/ext/bson.o.d" afterPath="" />
@@ -88,8 +98,24 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/build/config.gypi" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/build/gyp-mac-tool" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/build/validation.target.mk" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/csurf/.npmignore" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/csurf/.npmignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/csurf/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/csurf/HISTORY.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/History.md" afterPath="$PROJECT_DIR$/node_modules/express/History.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/History.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/History.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/compression/node_modules/accepts/History.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/compression/node_modules/accepts/History.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/errorhandler/node_modules/accepts/History.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/errorhandler/node_modules/accepts/History.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/express-session/History.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/express-session/History.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-index/node_modules/accepts/History.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-index/node_modules/accepts/History.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-static/History.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-static/History.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/History.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/History.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/partials/Meeting.html" afterPath="$PROJECT_DIR$/public/partials/Meeting.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/csurf/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/csurf/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-static/Readme.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-static/Readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/Readme.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/Readme.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/lib/application.js" afterPath="$PROJECT_DIR$/node_modules/express/lib/application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/builderror.log" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/builderror.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/kerberos/builderror.log" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/kerberos/builderror.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/bson/builderror.log" afterPath="$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/node_modules/bson/builderror.log" />
@@ -97,8 +123,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/engine.io/node_modules/ws/builderror.log" afterPath="$PROJECT_DIR$/node_modules/socket.io/node_modules/engine.io/node_modules/ws/builderror.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/builderror.log" afterPath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/builderror.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers.js" afterPath="$PROJECT_DIR$/public/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/directives.js" afterPath="$PROJECT_DIR$/public/js/directives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/meeting.js" afterPath="$PROJECT_DIR$/public/js/meeting.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/compression/node_modules/accepts/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/compression/node_modules/accepts/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/csurf/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/csurf/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/errorhandler/node_modules/accepts/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/errorhandler/node_modules/accepts/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/express-session/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/express-session/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-index/node_modules/accepts/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-index/node_modules/accepts/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-static/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/serve-static/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/express-session/session/memory.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/express-session/session/memory.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/angular-route/package.json" afterPath="$PROJECT_DIR$/node_modules/angular-route/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/package.json" afterPath="$PROJECT_DIR$/node_modules/express/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/buffer-crc32/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/buffer-crc32/package.json" />
@@ -262,6 +294,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-parser/package.json" afterPath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-parser/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-parser/node_modules/isarray/package.json" afterPath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-parser/node_modules/isarray/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-parser/node_modules/json3/package.json" afterPath="$PROJECT_DIR$/node_modules/socket.io/node_modules/socket.io-parser/node_modules/json3/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/lib/request.js" afterPath="$PROJECT_DIR$/node_modules/express/lib/request.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/routes.js" afterPath="$PROJECT_DIR$/public/js/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/lib/send.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/lib/send.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/session.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/lib/middleware/session.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lean-coffee.iws" />
@@ -288,8 +324,8 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="1275">
-              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="590" max-vertical-offset="1395">
+              <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -298,22 +334,29 @@
       <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2820">
-              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-              <folding>
-                <marker date="1404741018263" expanded="true" signature="1689:1729" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="1803:2880" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="1850:2880" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="2916:3176" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="2971:3048" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="3053:3170" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="3130:3159" placeholder="{&quot;title&quot;: 'Note Title'...}" />
-                <marker date="1404741018263" expanded="true" signature="4617:4620" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="4703:5022" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="4720:4981" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="4753:4793" placeholder="{...}" />
-                <marker date="1404741018263" expanded="true" signature="4870:4924" placeholder="{...}" />
-              </folding>
+            <state vertical-scroll-proportion="-12.37037" vertical-offset="986" max-vertical-offset="3870">
+              <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Modules.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/Modules.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="555">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="2910">
+              <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -321,11 +364,9 @@
       <file leaf-file-name="directives.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="944" max-vertical-offset="1530">
-              <caret line="78" column="12" selection-start-line="78" selection-start-column="12" selection-end-line="78" selection-end-column="12" />
-              <folding>
-                <marker date="1404400483581" expanded="true" signature="2068:2113" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="-14.37037" vertical-offset="392" max-vertical-offset="885">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -333,9 +374,11 @@
       <file leaf-file-name="Meeting.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/partials/Meeting.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1185">
-              <caret line="15" column="108" selection-start-line="15" selection-start-column="108" selection-end-line="15" selection-end-column="108" />
-              <folding />
+            <state vertical-scroll-proportion="-7.0" vertical-offset="42" max-vertical-offset="2115">
+              <caret line="14" column="96" selection-start-line="14" selection-start-column="96" selection-end-line="14" selection-end-column="96" />
+              <folding>
+                <element signature="tag#script#1" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -343,38 +386,28 @@
       <file leaf-file-name="service.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="885">
-              <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="1020">
+              <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="routes.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1050">
-              <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="62" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.5396419" vertical-offset="809" max-vertical-offset="1200">
+              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="420">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="meeting.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="meeting.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/meeting.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4522613" vertical-offset="30" max-vertical-offset="465">
-              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="465">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -383,7 +416,7 @@
       <file leaf-file-name="database.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/database.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
               <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
               <folding />
             </state>
@@ -404,13 +437,14 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/public/js/Modules.js" />
-        <option value="$PROJECT_DIR$/public/js/service.js" />
-        <option value="$PROJECT_DIR$/public/js/routes.js" />
-        <option value="$PROJECT_DIR$/public/partials/Meeting.html" />
-        <option value="$PROJECT_DIR$/public/js/directives.js" />
         <option value="$PROJECT_DIR$/public/js/meeting.js" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/public/js/directives.js" />
+        <option value="$PROJECT_DIR$/public/js/service.js" />
+        <option value="$PROJECT_DIR$/public/partials/Meeting.html" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/js/controllers.js" />
+        <option value="$PROJECT_DIR$/public/js/routes.js" />
       </list>
     </option>
   </component>
@@ -446,7 +480,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -515,16 +548,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lean-coffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lean-coffee" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../lean-coffee" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -535,12 +595,14 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
+    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" />
+      <option name="executablePath" />
       <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -548,16 +610,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" />
-      <option name="executablePath" />
-      <option name="filePath" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -582,11 +634,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28708133" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2982456" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24921875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -596,19 +649,18 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36622074" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31319556" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -616,10 +668,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24960877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24921875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -642,14 +694,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/meeting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="450">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/database.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
@@ -670,20 +714,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2625" max-vertical-offset="2715">
           <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-          <folding>
-            <marker date="1404741018263" expanded="true" signature="1689:1729" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1803:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1850:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2916:3176" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2971:3048" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3053:3170" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3130:3159" placeholder="{&quot;title&quot;: 'Note Title'...}" />
-            <marker date="1404741018263" expanded="true" signature="4617:4620" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4703:5022" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4720:4981" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4753:4793" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4870:4924" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -691,9 +722,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1515">
           <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
-          <folding>
-            <marker date="1404400483581" expanded="true" signature="2068:2113" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -701,7 +730,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="727" max-vertical-offset="1185">
           <caret line="63" column="134" selection-start-line="63" selection-start-column="134" selection-end-line="63" selection-end-column="134" />
-          <folding />
+          <folding>
+            <element signature="tag#script#1" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -749,20 +780,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1200" max-vertical-offset="2400">
           <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
-          <folding>
-            <marker date="1404741018263" expanded="true" signature="1689:1729" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1803:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1850:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2916:3176" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2971:3048" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3053:3170" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3130:3159" placeholder="{&quot;title&quot;: 'Note Title'...}" />
-            <marker date="1404741018263" expanded="true" signature="4617:4620" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4703:5022" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4720:4981" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4753:4793" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4870:4924" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -770,9 +788,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1404400483581" expanded="true" signature="2068:2113" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -780,7 +796,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="632" max-vertical-offset="1035">
           <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="tag#script#1" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -828,20 +846,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2385">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1404741018263" expanded="true" signature="1689:1729" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1803:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1850:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2916:3176" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2971:3048" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3053:3170" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3130:3159" placeholder="{&quot;title&quot;: 'Note Title'...}" />
-            <marker date="1404741018263" expanded="true" signature="4617:4620" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4703:5022" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4720:4981" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4753:4793" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4870:4924" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -849,9 +854,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="708" max-vertical-offset="1215">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding>
-            <marker date="1404400483581" expanded="true" signature="2068:2113" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -859,7 +862,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1020">
           <caret line="1" column="57" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
-          <folding />
+          <folding>
+            <element signature="tag#script#1" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -914,20 +919,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1290" max-vertical-offset="2520">
           <caret line="86" column="29" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="29" />
-          <folding>
-            <marker date="1404741018263" expanded="true" signature="1689:1729" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1803:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1850:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2916:3176" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2971:3048" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3053:3170" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3130:3159" placeholder="{&quot;title&quot;: 'Note Title'...}" />
-            <marker date="1404741018263" expanded="true" signature="4617:4620" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4703:5022" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4720:4981" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4753:4793" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4870:4924" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -935,9 +927,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
           <caret line="0" column="4" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="4" />
-          <folding>
-            <marker date="1404400483581" expanded="true" signature="2068:2113" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -945,7 +935,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1020">
           <caret line="1" column="57" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
-          <folding />
+          <folding>
+            <element signature="tag#script#1" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1000,20 +992,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="2055">
           <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <marker date="1404741018263" expanded="true" signature="1689:1729" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1803:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1850:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2916:3176" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2971:3048" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3053:3170" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3130:3159" placeholder="{&quot;title&quot;: 'Note Title'...}" />
-            <marker date="1404741018263" expanded="true" signature="4617:4620" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4703:5022" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4720:4981" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4753:4793" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4870:4924" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1041,17 +1020,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="420">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/meeting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="2910">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.37037" vertical-offset="392" max-vertical-offset="885">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/Modules.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="555">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="885">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="1020">
+          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="590" max-vertical-offset="1395">
+          <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -1064,73 +1084,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/directives.js">
+    <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="944" max-vertical-offset="1530">
-          <caret line="78" column="12" selection-start-line="78" selection-start-column="12" selection-end-line="78" selection-end-column="12" />
-          <folding>
-            <marker date="1404400483581" expanded="true" signature="2068:2113" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-12.37037" vertical-offset="986" max-vertical-offset="3870">
+          <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/partials/Meeting.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1185">
-          <caret line="15" column="108" selection-start-line="15" selection-start-column="108" selection-end-line="15" selection-end-column="108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="1275">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-7.0" vertical-offset="42" max-vertical-offset="2115">
+          <caret line="14" column="96" selection-start-line="14" selection-start-column="96" selection-end-line="14" selection-end-column="96" />
+          <folding>
+            <element signature="tag#script#1" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1050">
-          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="62" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="420">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2820">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding>
-            <marker date="1404741018263" expanded="true" signature="1689:1729" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1803:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="1850:2880" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2916:3176" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="2971:3048" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3053:3170" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="3130:3159" placeholder="{&quot;title&quot;: 'Note Title'...}" />
-            <marker date="1404741018263" expanded="true" signature="4617:4620" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4703:5022" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4720:4981" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4753:4793" placeholder="{...}" />
-            <marker date="1404741018263" expanded="true" signature="4870:4924" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/meeting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4522613" vertical-offset="30" max-vertical-offset="465">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.5396419" vertical-offset="809" max-vertical-offset="1200">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
         </state>
       </provider>

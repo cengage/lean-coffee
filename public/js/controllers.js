@@ -51,10 +51,22 @@ angular.module('leanNotes.controllers', [])
     socket.on('onVoteUp', function(data){
         angular.forEach($scope.meeting.topics, function(note) {
             if(note._id == data._id){
-                note.title = data.title;
-                note.content = data.content;
+//                note.title = data.title;
+//                note.content = data.content;
                 note.votes = data.votes;
-                note.assignedTo = data.assignedTo;
+//                note.assignedTo = data.assignedTo;
+            }
+        });
+    });
+
+    socket.on('onStatusChange', function(data){
+        angular.forEach($scope.meeting.topics, function(note) {
+            if(note._id == data._id){
+                note.status = data.status;
+//                note.title = data.title;
+//                note.content = data.content;
+//                note.votes = data.votes;
+//                note.assignedTo = data.assignedTo;
             }
         });
     });
@@ -71,8 +83,8 @@ angular.module('leanNotes.controllers', [])
             if(note._id == data._id){
                 note.title = data.title;
                 note.content = data.content;
-                note.votes = data.votes;
-                note.assignedTo = data.assignedTo;
+//                note.votes = data.votes;
+//                note.assignedTo = data.assignedTo;
             }
         });
     });
@@ -181,10 +193,22 @@ angular.module('leanNotes.controllers', [])
         $scope.meeting.currentTopic = note;
         Meeting.incVoteTopic($scope.meeting)
             .success(function(data){
-                //Yet to handle real time transfer to other clients
                 socket.emit('voteUp', note);
             });
     };
+
+    $scope.changeStatus = function(note){
+        if(note.status == 'Ready'){
+            note.status = 'Doing';
+        }else if(note.status == 'Doing'){
+            note.status = 'Done';
+        }
+        $scope.meeting.currentTopic = note;
+        Meeting.changeTopicStatus($scope.meeting)
+            .success(function(data){
+                socket.emit('statusChange', note);
+            });
+    }
 
 })
 
