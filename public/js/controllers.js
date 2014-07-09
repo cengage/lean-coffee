@@ -48,6 +48,17 @@ angular.module('leanNotes.controllers', [])
         $scope.handleDeletedNoted(data.title);
     });
 
+    socket.on('onVoteUp', function(data){
+        angular.forEach($scope.meeting.topics, function(note) {
+            if(note._id == data._id){
+                note.title = data.title;
+                note.content = data.content;
+                note.counter = data.votes;
+                note.assignedTo = data.assignedTo;
+            }
+        });
+    });
+
     socket.on('onUserJoin',function(data){
         //alert('receive user joining event' );
         //alert(data);
@@ -136,7 +147,9 @@ angular.module('leanNotes.controllers', [])
             .success(function(data){
                 $scope.meeting = data;
                 $scope.meeting.currentUser = currentUser;
-                socket.emit('createNote', $scope.meeting.topics.slice(-1));
+                topic = $scope.meeting.topics.slice(-1)[0];
+                alert(topic._id);
+                socket.emit('createNote', topic);
             });
         $('#noteInitial').hide();
         $("#title").val("");
@@ -169,6 +182,7 @@ angular.module('leanNotes.controllers', [])
         Meeting.incVoteTopic($scope.meeting)
             .success(function(data){
                 //Yet to handle real time transfer to other clients
+                socket.emit('voteUp', note);
             });
     };
 
