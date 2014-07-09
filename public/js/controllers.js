@@ -26,7 +26,7 @@ angular.module('leanNotes.controllers', [])
     $scope.meeting = {};
     $scope.meeting.topics = [];
     $scope.meeting.users = [];
-
+    var currentUser = {};
 
     Meeting.getMeeting($routeParams.meetingId)
         .success(function(data){
@@ -55,6 +55,22 @@ angular.module('leanNotes.controllers', [])
         });
     // Outgoing
 
+    socket.on('onNoteUpdated', function(data) {
+        angular.forEach($scope.meeting.topics, function(note) {
+            if(note._id == data._id){
+                note.title = data.title;
+                note.content = data.content;
+                note.counter = data.votes;
+                note.assignedTo = data.assignedTo;
+            }
+        });
+    });
+
+
+    $scope.updateNote = function(note) {
+        socket.emit('updateNote', note);
+    };
+
     $scope.userJoin = function(){
 
         if($scope.meeting._id == null){
@@ -62,7 +78,7 @@ angular.module('leanNotes.controllers', [])
         }else if($(".usernameInput").val()==""){
             alert("Enter your name first");
         }else{
-            var user = {
+            currentUser = {
                 email: $(".userEmail").val(),
                 name : $(".usernameInput").val(),
                 votesRemaining : 5
@@ -70,19 +86,19 @@ angular.module('leanNotes.controllers', [])
 
             for(var i = 0; i < $scope.meeting.users.length; i++)
             {
-                if($scope.meeting.users[i].email == user.email)
+                if($scope.meeting.users[i].email == currentUser.email)
                 {
                     alert("User with Email Id already exists");
                     return;
                 }
             }
 
-            $scope.meeting.currentUser = user;
+            $scope.meeting.currentUser = currentUser;
 
             Meeting.updateUsers($scope.meeting)
                 .success(function (data) {
-                    //alert("Hi " + user.name + "!!!");
-                    $scope.meeting.users.push(user);
+                    $scope.meeting = data;
+                    $scope.meeting.currentUser = currentUser;
                     socket.emit('userJoin', $scope.meeting.users);
                 })
                 .error(function(error){
@@ -99,7 +115,6 @@ angular.module('leanNotes.controllers', [])
 
     };
     $scope.createNote = function() {
-        //alert('about to prep object note for push into notes');
         if($scope.meeting.currentUser == null){
             alert('Please enter Username before creating a topic');
         }else {
@@ -110,7 +125,6 @@ angular.module('leanNotes.controllers', [])
     $scope.saveNote = function() {
 
         var topic = {
-            _id: new Date().getTime(),
             title: $("#title").val(),
             content: $("#content").val(),
             status: 'Ready',
@@ -120,9 +134,10 @@ angular.module('leanNotes.controllers', [])
         $scope.meeting.currentTopic = topic;
         Meeting.updateNotes($scope.meeting)
             .success(function(data){
-                console.log(data);
-                $scope.meeting.topics.push(topic);
-                socket.emit('createNote', topic);
+                alert(data._id);
+                $scope.meeting = data;
+                $scope.meeting.currentUser = currentUser;
+                socket.emit('createNote', $scope.meeting.topics.slice(-1));
             });
         $('#noteInitial').hide();
         $("#title").val("");
@@ -135,21 +150,23 @@ angular.module('leanNotes.controllers', [])
         $("#content").val("");
     };
 
-    $scope.deleteNote = function(title) {
-        $scope.handleDeletedNoted(title);
-
-        socket.emit('deleteNote', {title: title});
+    $scope.deleteNote = function(_id) {
+        $scope.handleDeletedNoted(_id);
+        socket.emit('deleteNote', {_id: _id});
     };
-    $scope.handleDeletedNoted = function(title) {
+
+    $scope.handleDeletedNoted = function(_id) {
         var oldNotes = $scope.meeting.topics,
             newNotes = [];
 
         angular.forEach(oldNotes, function(note) {
-            if(note.title !== title) newNotes.push(note);
+            if(note._id !== _id) newNotes.push(note);
         });
         $scope.meeting.topics = newNotes;
-    }
+    };
+
 })
+
 .controller('myController',function($scope,$timeout,socket)
  {
     $scope.timercounter = 10;

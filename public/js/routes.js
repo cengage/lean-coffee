@@ -38,7 +38,7 @@ module.exports = function(app){
     });
 
     app.put('/api/user', function(req, res){
-        Meeting.update({_id : req.body._id}, {
+        Meeting.findOneAndUpdate({_id : req.body._id}, {
             $push : { users : req.body.currentUser}
         }, function (err, meeting) {
             if(err)
@@ -48,7 +48,7 @@ module.exports = function(app){
     });
 
     app.put('/api/topic', function(req, res){
-        Meeting.update({_id: req.body._id}, {
+        Meeting.findOneAndUpdate({_id: req.body._id}, {
             $push : { topics : req.body.currentTopic}
         }, function(err, meeting) {
             if(err)

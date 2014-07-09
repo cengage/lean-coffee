@@ -19,11 +19,11 @@ html,body,.container
 {
     display: table-cell;
     float: none; /* thanks baxabbit */
-    background: gray;
+   // background: gray;
 
 }
 body {
-    background:beige !important;
+    background:rgba(0,0,0,0.04) !important;
 }
 
 .MyTimerButton {
@@ -34,7 +34,7 @@ body {
 {
     font-size: 20px;
 }
-.sticky-note {
+.sticky-note-create {
     position: absolute;
 }
 

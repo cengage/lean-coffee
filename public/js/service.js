@@ -19,6 +19,12 @@ angular.module('meetingService', [])
                 },
                 updateNotes : function(meeting) {
                     return $http.put('/api/topic', meeting);
+                },
+                incVoteTopic : function(meeting) {
+                    return $http.put('/api/topic/vote', meeting);
+                },
+                changeTopicStatus : function(meeting){
+                    return $http.put('/api/topic/changeStatus', meeting);
                 }
             }
         }
