@@ -57,6 +57,10 @@ io.sockets.on('connection', function(socket) {
         socket.broadcast.emit('onNoteMoved', data);
     });
 
+    socket.on('voteUp', function(data){
+        socket.broadcast.emit('onVoteUp', data)
+    });
+
     socket.on('deleteNote', function(data){
         socket.broadcast.emit('onNoteDeleted', data);
     });
