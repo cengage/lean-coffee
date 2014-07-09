@@ -53,7 +53,7 @@ angular.module('leanNotes.controllers', [])
             if(note._id == data._id){
                 note.title = data.title;
                 note.content = data.content;
-                note.counter = data.votes;
+                note.votes = data.votes;
                 note.assignedTo = data.assignedTo;
             }
         });
@@ -71,7 +71,7 @@ angular.module('leanNotes.controllers', [])
             if(note._id == data._id){
                 note.title = data.title;
                 note.content = data.content;
-                note.counter = data.votes;
+                note.votes = data.votes;
                 note.assignedTo = data.assignedTo;
             }
         });
