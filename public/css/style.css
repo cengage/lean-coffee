@@ -27,13 +27,25 @@ body {
 }
 
 .MyTimerButton {
- margin-top: 10%;
+ margin-top: 4%;
+    padding-right: 10px;
 }
 
-.myTimer
-{
-    font-size: 20px;
+.myTimerDisplay{
+    padding-right: 25px;
 }
+
+.navbar .nav .putThisInMiddle{
+    /*float:none;*/
+    /*display:inline-block;*/
+    /**display:inline; *//* ie7 fix */
+    /**zoom:1; *//* hasLayout ie7 trigger */
+    /*vertical-align: top;*/
+    /*text-align: center;*/
+}
+
+
+
 .sticky-note-create {
     position: absolute;
 }

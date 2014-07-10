@@ -45,7 +45,7 @@ angular.module('leanNotes.controllers', [])
     });
 
     socket.on('onNoteDeleted', function(data) {
-        $scope.handleDeletedNoted(data.title);
+        $scope.handleDeletedNoted(data._id);
     });
 
     socket.on('onVoteUp', function(data){
@@ -210,44 +210,4 @@ angular.module('leanNotes.controllers', [])
             });
     }
 
-})
-
-.controller('myController',function($scope,$timeout,socket)
- {
-    $scope.timercounter = 10;
-    var mytimeout = 0;
-
-    socket.on('onplay',function(){
-        $scope.play();
-    });
-    socket.on('onpause',function(){
-        $scope.pause();
-    });
-    socket.on('onstop',function(){
-        $scope.stop();
-    });
-
-    $scope.play = function(){
-        $scope.onTimeout = function(){
-            if($scope.timercounter!=0)
-            {
-                $scope.timercounter--;
-                mytimeout = $timeout($scope.onTimeout,1000);
-            }
-            else
-            {
-                $timeout.cancel(mytimeout);
-            }
-        }
-        mytimeout = $timeout($scope.onTimeout,1000);
-        socket.emit('play');
-    }
-    $scope.pause = function(){
-        $timeout.cancel(mytimeout);
-        socket.emit('pause');
-    }
-    $scope.stop = function(){
-        $scope.timercounter = 10;
-        socket.emit('stop');
-    }
 });
