@@ -4,7 +4,7 @@ angular.module('leanNotes', [
     'leanNotes.services',
     'leanNotes.directives',
     'leanNotes.controllers','meetingController',
-    'meetingService'
+    'meetingService','timerController'
 ])
 
 .config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){

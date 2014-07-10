@@ -19,25 +19,7 @@
                         <!--<label ng-show="meeting.currentUser!=null">Logged in as: {{meeting.currentUser.name}}</label>-->
                     </div>
                 </form>
-                <ul class="nav navbar-nav navbar-right" ng-controller="myController">
-                    <li class ="MyTimerButton">
-                        <button type="button" class="close" ng-click="play()">
-                            <span class="glyphicon glyphicon-play"></span>
-                        </button>
-                    </li>
-                    <li class ="MyTimerButton">
-                        <button type="button" class="close" ng-click="pause()">
-                            <span class="glyphicon glyphicon-pause"></span>
-                        </button>
-                    </li>
-                    <li class ="MyTimerButton">
-                        <button type="button" class="close" ng-click="stop()">
-                            <span class="glyphicon glyphicon-stop"></span>
-                        </button>
-                    </li>
-                    <li><a href="#"><div class="myTimer">{{timercounter}}</div></a></li>
 
-                </ul>
                 <!-- Side Menu -->
                 <a id="menu-toggle" class="btn btn-primary btn-lg toggle"><i class="glyphicon glyphicon-arrow-left"></i></a>
                 <div id="sidebar-wrapper">
@@ -72,9 +54,28 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <h2>Doing</h2>
+
+                <h2>Doing<ul class="nav navbar-nav navbar-right" ng-controller="myController">
+                <li class ="MyTimerButton">
+                    <button id="startBtn" type="button" class="close" ng-click="play()">
+                        <span class="glyphicon glyphicon-play"></span>
+                    </button>
+                </li>
+                <li class ="MyTimerButton">
+                    <button id="pauseBtn" type="button" class="close" ng-click="pause()">
+                        <span class="glyphicon glyphicon-pause"></span>
+                    </button>
+                </li>
+                <li class ="MyTimerButton">
+                    <button id="stopBtn" type="button" class="close" ng-click="stop()">
+                        <span class="glyphicon glyphicon-stop"></span>
+                    </button>
+                </li>
+                <li class="myTimerDisplay">{{timercounter}}</li>
+
+            </ul></h2>
                 <div sticky-note ng-repeat="note in meeting.topics" note="note" class="alert alert-success sticky-note" ng-show="note.status == 'Doing'">
-                    <button type="button" class="close" ng-click="deleteNote(note._id)">&times;</button>
+                    <button  type="button" class="close" ng-click="deleteNote(note._id)">&times;</button>
                     <button type="button" ng-click="changeStatus(note)">&rAarr;</button>
                     <input ng-model="note.title" ng-change="updateNote(note)" type="text" class="title" >
                     <textarea ng-model="note.content" ng-change="updateNote(note)" class="body">{{note.content}}</textarea>
