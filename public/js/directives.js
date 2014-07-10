@@ -17,8 +17,8 @@ angular.module('leanNotes.directives', [])
     };
 
     return {
-        restrict: 'A',
-       link: linker
+        restrict: 'A'
+//       link: linker
     };
 })
 

@@ -67,6 +67,16 @@ module.exports = function(app){
         } )
     });
 
+    app.put('/api/topic/changeStatus', function(req, res){
+        Meeting.update( { _id: req.body._id, "topics.title": req.body.currentTopic.title }, {
+            $set: { "topics.$.status" : req.body.currentTopic.status }
+        }, function(err, meeting) {
+            if(err)
+                res.send(err);
+            res.json(meeting);
+        } )
+    });
+
     // application -------------------------------------------------------------
     app.get('/', function(req, res) {
         res.sendfile('./public/index.html');
