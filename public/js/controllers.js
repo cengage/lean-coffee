@@ -30,12 +30,12 @@ angular.module('leanNotes.controllers', [])
 
     Meeting.getMeeting($routeParams.meetingId)
         .success(function(data){
-            $scope.meeting = data;
+            $scope.meeting._id = data._id;
            // alert("Welcome to meeting with Id : " + $scope.meeting._id);
         })
         .error(function(err){
             $location.path('/Meeting');
-           alert("This is not a valid meeting, please check the link")
+            alert("This is not a valid meeting, please check the link")
         });
 
 

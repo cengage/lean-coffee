@@ -9,14 +9,14 @@ module.exports = mongoose.model('Meeting', {
     createdAt : { type: String, default: Date.now() },
     users : [
         {
-            email : { type: String, unique: true },
+            email : { type: String },
             name : String,
             votesRemaining : Number
         }
     ],
     topics : [
         {
-            title : { type: String, unique: true },
+            title : { type: String },
             content : String,
             status : String,
             votes : Number,
