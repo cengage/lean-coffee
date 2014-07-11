@@ -121,12 +121,13 @@ angular.module('leanNotes.controllers', [])
             Meeting.updateUsers($scope.meeting)
                 .success(function (data) {
                     $scope.meeting = data;
+                    currentUser = $scope.meeting.users.slice(-1)[0];
                     $scope.meeting.currentUser = currentUser;
                     socket.emit('userJoin', $scope.meeting.users);
                 })
                 .error(function(error){
                     alert(error);
-                })
+                });
             $(".usernameInput").val('');
             $(".userEmail").val('');
             $(".usernameInput").hide( "slow");
@@ -189,11 +190,21 @@ angular.module('leanNotes.controllers', [])
     };
 
     $scope.voteUp = function(note) {
+        if(currentUser.votesRemaining <= 0){
+            alert("You finished your 5 votes");
+            return;
+        }
         note.votes += 1;
         $scope.meeting.currentTopic = note;
+        $scope.meeting.currentUser = currentUser;
         Meeting.incVoteTopic($scope.meeting)
             .success(function(data){
                 socket.emit('voteUp', note);
+            });
+        --currentUser.votesRemaining;
+        Meeting.decVoteUser($scope.meeting)
+            .error(function(err){
+                ++currentUser.votesRemaining;
             });
     };
 
@@ -202,6 +213,8 @@ angular.module('leanNotes.controllers', [])
             note.status = 'Doing';
         }else if(note.status == 'Doing'){
             note.status = 'Done';
+        }else if(note.status == 'Done'){
+            note.status = 'Ready';
         }
         $scope.meeting.currentTopic = note;
         Meeting.changeTopicStatus($scope.meeting)

@@ -68,13 +68,23 @@ module.exports = function(app){
     });
 
     app.put('/api/topic/changeStatus', function(req, res){
-        Meeting.update( { _id: req.body._id, "topics.title": req.body.currentTopic.title }, {
+        Meeting.update( { _id: req.body._id, "topics._id": req.body.currentTopic._id }, {
             $set: { "topics.$.status" : req.body.currentTopic.status }
         }, function(err, meeting) {
             if(err)
                 res.send(err);
             res.json(meeting);
         } )
+    });
+
+    app.put('/api/user/decVote', function(req, res){
+        Meeting.update({ _id: req.body._id, "users._id": req.body.currentUser._id}, {
+            $inc: {"users.$.votesRemaining" : -1}
+        }, function(err, meeting){
+            if(err)
+                res.send(err);
+            res.json(meeting);
+        })
     });
 
     // application -------------------------------------------------------------
