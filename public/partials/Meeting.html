@@ -71,7 +71,7 @@
                         <span class="glyphicon glyphicon-stop"></span>
                     </button>
                 </li>
-                <li class="myTimerDisplay">{{timercounter}}</li>
+                <li class="myTimerDisplay">{{timestuff}}</li>
 
             </ul></h2>
                 <div sticky-note ng-repeat="note in meeting.topics" note="note" class="alert alert-success sticky-note" ng-show="note.status == 'Doing'">
@@ -112,16 +112,6 @@
         <!--<span class="close">{{note.votes}}</span>-->
         <button type="button" class="close" ng-click="saveNote()"><span class="glyphicon">Save</span></button>
     </div>
-    <!--<div sticky-note ng-repeat="note in meeting.topics" note="note" class="alert alert-success sticky-note" ondelete="deleteNote(title)">-->
-        <!--<button type="button" class="close" ng-click="deleteNote(note.title)">&times;</button>-->
-        <!--<input ng-model="note.title" ng-change="updateNote(note)" type="text" class="title" >-->
-        <!--<textarea ng-model="note.content" ng-change="updateNote(note)" class="body">{{note.content}}</textarea>-->
-        <!--<label>Created By: {{note.assignedTo}}</label>-->
-        <!--<!--<button type="button" class="close"><span class="glyphicon glyphicon-thumbs-up"></span></button>-->-->
-        <!--<span class="close">{{note.votes}}</span>-->
-        <!--<button type="button" class="close" ng-click="voteUp(note)"><span class="glyphicon glyphicon-thumbs-up"></span></button>-->
-        <!--<!--<button type="button" class="close"><span class="glyphicon glyphicon-thumbs-down"></span></button>-->-->
-    <!--</div>-->
 
 </div>
 

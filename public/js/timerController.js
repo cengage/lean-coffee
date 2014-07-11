@@ -1,7 +1,15 @@
 angular.module('timerController', [])
     .controller('myController',function($scope,$timeout,socket)
     {
+        $scope.timestuff="";
         $scope.timercounter = 10;
+
+
+            var hours = parseInt( $scope.timercounter / 3600 ) % 24;
+            var minutes = parseInt( $scope.timercounter / 60 ) % 60;
+            var seconds = $scope.timercounter % 60;
+            $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+
         var mytimeout = 0;
 
         socket.on('onplay',function(){
@@ -25,6 +33,11 @@ angular.module('timerController', [])
                 if($scope.timercounter!=0)
                 {
                     $scope.timercounter--;
+                    var hours = parseInt( $scope.timercounter / 3600 ) % 24;
+                    var minutes = parseInt( $scope.timercounter / 60 ) % 60;
+                    var seconds = $scope.timercounter % 60;
+                    $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+
                     mytimeout = $timeout($scope.onTimeout,1000);
                 }
                 else
@@ -58,6 +71,11 @@ angular.module('timerController', [])
         $scope.handleStop = function(){
             $timeout.cancel(mytimeout);
             $scope.timercounter = 10;
+            var hours = parseInt( $scope.timercounter / 3600 ) % 24;
+            var minutes = parseInt( $scope.timercounter / 60 ) % 60;
+            var seconds = $scope.timercounter % 60;
+            $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+
             $("#startBtn").show("slow");
             $("#stopBtn").hide("slow");
             $("#pauseBtn").show("slow");
