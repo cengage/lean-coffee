@@ -65,7 +65,7 @@ angular.module('leanNotes.controllers', [])
                 note.status = data.status;
 //                note.title = data.title;
 //                note.content = data.content;
-//                note.votes = data.votes;
+                note.votes = data.votes;
 //                note.assignedTo = data.assignedTo;
             }
         });
@@ -215,6 +215,7 @@ angular.module('leanNotes.controllers', [])
             note.status = 'Done';
         }else if(note.status == 'Done'){
             note.status = 'Ready';
+            note.votes = 0;
         }
         $scope.meeting.currentTopic = note;
         Meeting.changeTopicStatus($scope.meeting)

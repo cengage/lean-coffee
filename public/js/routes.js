@@ -69,7 +69,7 @@ module.exports = function(app){
 
     app.put('/api/topic/changeStatus', function(req, res){
         Meeting.update( { _id: req.body._id, "topics._id": req.body.currentTopic._id }, {
-            $set: { "topics.$.status" : req.body.currentTopic.status }
+            $set: { "topics.$.status" : req.body.currentTopic.status, "topics.$.votes" : req.body.currentTopic.votes}
         }, function(err, meeting) {
             if(err)
                 res.send(err);
