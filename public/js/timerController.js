@@ -2,7 +2,8 @@ angular.module('timerController', [])
     .controller('myController',function($scope,$timeout,socket)
     {
         $scope.timestuff="";
-        $scope.timercounter = 10;
+        $scope.timercounter = 300;
+        $scope.MinTimeLimit=9;
 
 
             var hours = parseInt( $scope.timercounter / 3600 ) % 24;
@@ -30,6 +31,16 @@ angular.module('timerController', [])
 
         $scope.handlePlay = function(){
             $scope.onTimeout = function(){
+                if($scope.timercounter <= $scope.MinTimeLimit && $scope.timercounter!=0)
+                {
+                    //$(".myTimerDisplay").css("color","red").fadeIn("slow");
+                    $(".myTimerDisplay").css("color","red").fadeOut("slow");
+                    $(".myTimerDisplay").css("color","red").fadeIn("slow");
+                }
+                else
+                {
+                    $(".myTimerDisplay").css("color","black");
+                }
                 if($scope.timercounter!=0)
                 {
                     $scope.timercounter--;
@@ -37,8 +48,8 @@ angular.module('timerController', [])
                     var minutes = parseInt( $scope.timercounter / 60 ) % 60;
                     var seconds = $scope.timercounter % 60;
                     $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
-
                     mytimeout = $timeout($scope.onTimeout,1000);
+
                 }
                 else
                 {
@@ -49,6 +60,8 @@ angular.module('timerController', [])
             $("#startBtn").hide("slow");
             $("#pauseBtn").show("slow");
             $("#stopBtn").show("slow");
+
+
 
         }
         $scope.pause = function(){

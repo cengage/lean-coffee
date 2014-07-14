@@ -27,9 +27,17 @@ body {
 }
 
 .MyTimerButton {
- margin-top: 4%;
+ margin-top: 1%;
     padding-right: 10px;
 }
+
+
+
+.myTimerDisplayRed{
+    padding-right: 25px;
+    background-color: darkred;
+}
+
 
 .myTimerDisplay{
     padding-right: 25px;
