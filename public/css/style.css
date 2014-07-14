@@ -35,7 +35,7 @@ body {
 
 .myTimerDisplayRed{
     padding-right: 25px;
-    background-color: darkred;
+    background-color: red;
 }
 
 
@@ -64,16 +64,15 @@ body {
     display: block;
     font-size: 20px;
     font-weight: bold;
+    width: 100%; /*added to make the inputs to take up the full size*/
 }
 
 .sticky-note .body {
     background: transparent;
     border: none;
     display: block;
+    width: 100%; /*added to make the inputs to take up the full size*/
 }
-
-
-
 
 #sides{
     background-color: black;
