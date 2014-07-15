@@ -31,6 +31,7 @@ angular.module('leanNotes.controllers', [])
     Meeting.getMeeting($routeParams.meetingId)
         .success(function(data){
             $scope.meeting._id = data._id;
+            $scope.meeting = data;
            // alert("Welcome to meeting with Id : " + $scope.meeting._id);
         })
         .error(function(err){
@@ -135,9 +136,11 @@ angular.module('leanNotes.controllers', [])
             $("#joinButton").hide( "slow");
             $("#createButton").show("slow");
             $("#leaveButton").show("slow");
+            $("#resetButton").show("slow");
         }
 
     };
+
     $scope.createNote = function() {
         if($scope.meeting.currentUser == null){
             alert('Please enter Username before creating a topic');
@@ -222,6 +225,26 @@ angular.module('leanNotes.controllers', [])
             .success(function(data){
                 socket.emit('statusChange', note);
             });
-    }
+    };
+
+    $scope.resetVotes = function(){
+        Meeting.resetVotesTopics($scope.meeting._id)
+            .success(function(data){
+                angular.forEach($scope.meeting.topics, function(note) {
+                    if(note.status == "Ready"){
+                        note.votes = 0;
+                    }
+                });
+//                Yet to implement socket code
+            });
+        Meeting.resetVotesUsers($scope.meeting._id)
+            .success(function(data){
+                currentUser.votesRemaining = 5;
+                angular.forEach($scope.meeting.users, function(user) {
+                        user.votes = 5;
+                });
+//                Yet to implement socket code
+            });
+    };
 
 });
