@@ -73,6 +73,34 @@
             <div class="col-md-4">
 
                 <h2>Doing<ul class="nav navbar-nav navbar-right" ng-controller="myController">
+
+
+                    <!--buttons for extending the timer in the doing section-->
+
+                    <li class ="MyTimerButton">
+                        <button id="thumbUpBtnDoing" type="button" class="close" ng-click="">
+
+                            <span class="close">{{note.votes}}</span>
+                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                        </button>
+                    </li>
+                    <li class ="MyTimerButton">
+                        <button id="discardBtn" type="button" class="close" ng-click="">
+                            <span class="glyphicon glyphicon-minus-sign"></span>
+                        </button>
+                    </li>
+                    <li class ="MyTimerButton">
+                        <button id="thumbDownBtnDoing" type="button" class="close" ng-click="">
+                            <span class="glyphicon glyphicon-thumbs-down"></span>
+                        </button>
+                    </li>
+                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+
+
+
+
+
                     <li class ="MyTimerButton">
                         <button id="startBtn" type="button" class="close" ng-click="play()">
                             <span class="glyphicon glyphicon-play"></span>
