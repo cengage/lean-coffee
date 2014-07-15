@@ -2,14 +2,14 @@ angular.module('timerController', [])
     .controller('myController',function($scope,$timeout,socket)
     {
         $scope.timestuff="";
-        $scope.timercounter = 300;
-        $scope.MinTimeLimit=9;
+        $scope.timercounter =10;
+        $scope.MinTimeLimit=7;
 
 
-            var hours = parseInt( $scope.timercounter / 3600 ) % 24;
-            var minutes = parseInt( $scope.timercounter / 60 ) % 60;
-            var seconds = $scope.timercounter % 60;
-            $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+        var hours = parseInt( $scope.timercounter / 3600 ) % 24;
+        var minutes = parseInt( $scope.timercounter / 60 ) % 60;
+        var seconds = $scope.timercounter % 60;
+        $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
 
         var mytimeout = 0;
 
@@ -25,7 +25,7 @@ angular.module('timerController', [])
 
         $scope.play = function(){
             $scope.handlePlay();
-                console.log("I am played and I have emitted");
+            console.log("I am played and I have emitted");
             socket.emit('play');
         }
 
@@ -37,10 +37,10 @@ angular.module('timerController', [])
                     $(".myTimerDisplay").css("color","red").fadeOut("slow");
                     $(".myTimerDisplay").css("color","red").fadeIn("slow");
                 }
-                else
-                {
-                    $(".myTimerDisplay").css("color","black");
-                }
+//                else
+//                {
+//                    $(".myTimerDisplay").css("color","black");
+//                }
                 if($scope.timercounter!=0)
                 {
                     $scope.timercounter--;
@@ -92,5 +92,6 @@ angular.module('timerController', [])
             $("#startBtn").show("slow");
             $("#stopBtn").hide("slow");
             $("#pauseBtn").show("slow");
+            $(".myTimerDisplay").css("color","black");
         }
     });
