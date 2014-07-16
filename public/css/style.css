@@ -8,7 +8,11 @@ html,body,.container
     display:table;
     width: 100%;
 }
+.mybutton{
+ background-color: transparent;
+ padding: 0px; border: none;
 
+}
 .row
 {
     height: 100%;
