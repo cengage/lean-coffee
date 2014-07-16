@@ -6,6 +6,11 @@ var mongoose = require('mongoose');
 module.exports = mongoose.model('Meeting', {
     meetingName : String,
     initiatorName : String,
+    configurations : {
+        timePerTopic : Number,
+        extraTimePerTopic: Number,
+        votesPerUser: Number
+    },
     createdAt : { type: String, default: Date.now() },
     users : [
         {

@@ -8,7 +8,12 @@ module.exports = function(app){
 
         Meeting.create({
             meetingName: req.body.meetingName,
-            initiatorName: req.body.initiatorName
+            initiatorName: req.body.initiatorName,
+            configurations: {
+                timePerTopic : req.body.timePerTopic,
+                extraTimePerTopic: req.body.extraTimePerTopic,
+                votesPerUser: req.body.votesPerUser
+            }
         }, function (err, meeting) {
             if(err)
                 res.send(err);
