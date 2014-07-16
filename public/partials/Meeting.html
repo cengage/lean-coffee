@@ -9,11 +9,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left">
-                    <button id="createButton" ng-click="createNote()" class="btn btn-success" ng-hide="true">Create Note</button>
+
                     <div class="form-group form-group-right">
-                        <input type="text" class="form-control usernameInput" placeholder="Enter your name">
-                        <input type="email" class="form-control userEmail" placeholder="Enter your email">
+                        <input id="usernme" type="text" class="form-control usernameInput" placeholder="Enter your name">
+                        <input id="usernameEmail" type="email" class="form-control userEmail" placeholder="Enter your email">
                         <button id="joinButton" ng-click="userJoin()" class="btn btn-info">Join</button>
+                        <button id="createButton" ng-click="createNote()" class="btn btn-success" ng-hide="true">Create Note</button>
                         <button id="leaveButton" ng-click="userLeave()" class="btn btn-danger" ng-hide="true">Leave</button>
                         <button id="resetButton" ng-click="resetVotes()" class="btn btn-warning" ng-hide="true">Reset Votes</button>
                         <div class="form-group form-group-right">

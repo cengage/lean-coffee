@@ -32,7 +32,6 @@ angular.module('leanNotes.controllers', [])
         .success(function(data){
             $scope.meeting = data;
             $scope.meeting.topics = [];
-
             if (sessionStorage.CurrUser != undefined ||  sessionStorage.CurrUser != null) {
 
                 console.log(sessionStorage.CurrUser);
@@ -52,11 +51,11 @@ angular.module('leanNotes.controllers', [])
                     .error(function (error) {
                         alert(error);
                     });
-                $(".usernameInput").val('');
-                $(".userEmail").val('');
-                $(".usernameInput").hide( "slow");
-                $(".userEmail").hide("slow");
-                $("#joinButton").hide( "slow");
+                $("#usernme").val('');
+                $("#usernameEmail").val('');
+                $("#usernme").hide();
+                $("#usernameEmail").hide();
+                $("#joinButton").hide();
                 $("#createButton").show("slow");
                 $("#leaveButton").show("slow");
                 $("#resetButton").show("slow");
@@ -164,11 +163,11 @@ angular.module('leanNotes.controllers', [])
                 .error(function(error){
                     alert(error);
                 });
-            $(".usernameInput").val('');
-            $(".userEmail").val('');
-            $(".usernameInput").hide( "slow");
-            $(".userEmail").hide("slow");
-            $("#joinButton").hide( "slow");
+            $("#usernme").val('');
+            $("#usernameEmail").val('');
+            $("#usernme").hide("slow");
+            $("#usernameEmail").hide("slow");
+            $("#joinButton").hide("slow");
             $("#createButton").show("slow");
             $("#leaveButton").show("slow");
             $("#resetButton").show("slow");
