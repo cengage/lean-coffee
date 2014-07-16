@@ -1,9 +1,3 @@
-.myTimerLocation {
-    margin-left: 5px;
-    font-size: 21px;
-    font-weight: 500;
-    font-family: inherit;
-}
 
 html,body,.container
 {
@@ -24,41 +18,30 @@ html,body,.container
 .col-md-4
 {
     display: table-cell;
-    float: none; /* thanks baxabbit */
-   // background: gray;
-
+    float: none;
 }
 body {
     background:rgba(0,0,0,0.04) !important;
+}
+
+.navbar-brand{
+    margin-right: -15px; /* because it was taking way too much space*/
 }
 
 .MyTimerButton {
  margin-top: 1%;
     padding-right: 10px;
 }
-
-
-
-.myTimerDisplayRed{
-    padding-right: 25px;
-    background-color: red;
+.myTimerLocation {
+    margin-left: 5px;
+    font-size: 21px;
+    font-weight: 500;
+    font-family: inherit;
 }
-
 
 .myTimerDisplay{
-    padding-right: 25px;
+    /*padding-right: 25px;*/
 }
-
-.navbar .nav .putThisInMiddle{
-    /*float:none;*/
-    /*display:inline-block;*/
-    /**display:inline; *//* ie7 fix */
-    /**zoom:1; *//* hasLayout ie7 trigger */
-    /*vertical-align: top;*/
-    /*text-align: center;*/
-}
-
-
 
 .sticky-note-create {
     position: absolute;
@@ -109,27 +92,14 @@ body {
     /*this will help in aligning center horizontally*/
     margin-left: auto;
     margin-right: auto;
-
-
     margin-top: auto;
     z-index: 2;
     background-size: 100%;
-
     width:30%;
-    /*height:400px;*/
-    /*left: 250px;*/
     margin-top:  10%;
-
-
     overflow:hidden;
-    /*bottom: 20%;*/
-    /*right: 250px;*/
 }
-
-
-
 /* Side Menu */
-
 #sidebar-wrapper {
     margin-right: -250px;
     right: 0;
@@ -147,7 +117,7 @@ body {
 }
 
 #setting-sidebar-wrapper {
-    margin-right: -260px;
+    margin-right: -255px;
     right: 0;
     width: 250px;
     background: #2B2828;
