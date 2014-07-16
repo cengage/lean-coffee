@@ -32,7 +32,38 @@ angular.module('leanNotes.controllers', [])
         .success(function(data){
             $scope.meeting = data;
             $scope.meeting.topics = [];
-           // alert("Welcome to meeting with Id : " + $scope.meeting._id);
+
+            if (sessionStorage.CurrUser != undefined ||  sessionStorage.CurrUser != null) {
+
+                console.log(sessionStorage.CurrUser);
+                currentUser.name = sessionStorage.CurrUser;
+                currentUser.email = sessionStorage.email;
+                currentUser.votesRemaining = 5;
+                $scope.meeting.currentUser = currentUser;
+                Meeting.getMeeting($scope.meeting._id)
+                    .success(function (data) {
+                        $scope.meeting = data;
+                        currentUser = $scope.meeting.users.slice(-1)[0];
+                        $scope.meeting.currentUser = currentUser;
+                        //console.log("joining yo!!!");
+                        //alert("joining yo!!!");
+                        socket.emit('userJoin', $scope.meeting.users);
+                    })
+                    .error(function (error) {
+                        alert(error);
+                    });
+                $(".usernameInput").val('');
+                $(".userEmail").val('');
+                $(".usernameInput").hide( "slow");
+                $(".userEmail").hide("slow");
+                $("#joinButton").hide( "slow");
+                $("#createButton").show("slow");
+                $("#leaveButton").show("slow");
+                $("#resetButton").show("slow");
+
+            }
+
+
         })
         .error(function(err){
             $location.path('/Meeting');
@@ -98,12 +129,14 @@ angular.module('leanNotes.controllers', [])
     };
 
     $scope.userJoin = function(){
-
+        if (sessionStorage.CurrUser == 'undefined' ||  sessionStorage.CurrUser == null) {
         if($scope.meeting._id == null){
             alert("Meeting is not validated yet");
         }else if($(".usernameInput").val()=="" && $(".userEmail").val()==""){
             alert("Enter your name and email");
         }else{
+            sessionStorage.CurrUser = $(".usernameInput").val();
+            sessionStorage.email = $(".userEmail").val();
             currentUser = {
                 email: $(".userEmail").val(),
                 name : $(".usernameInput").val(),
@@ -139,6 +172,7 @@ angular.module('leanNotes.controllers', [])
             $("#createButton").show("slow");
             $("#leaveButton").show("slow");
             $("#resetButton").show("slow");
+        }
         }
 
     };
