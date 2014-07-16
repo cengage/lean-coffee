@@ -30,8 +30,8 @@ angular.module('leanNotes.controllers', [])
 
     Meeting.getMeeting($routeParams.meetingId)
         .success(function(data){
-            $scope.meeting._id = data._id;
             $scope.meeting = data;
+            $scope.meeting.topics = [];
            // alert("Welcome to meeting with Id : " + $scope.meeting._id);
         })
         .error(function(err){
@@ -228,23 +228,31 @@ angular.module('leanNotes.controllers', [])
     };
 
     $scope.resetVotes = function(){
-        Meeting.resetVotesTopics($scope.meeting._id)
+        angular.forEach($scope.meeting.topics, function(note) {
+            if(note.status == "Ready"){
+                note.votes = 0;
+            }
+        });
+        currentUser.votesRemaining = 5;
+        angular.forEach($scope.meeting.users, function(user) {
+            user.votesRemaining = 5;
+        });
+        Meeting.resetVotes($scope.meeting)
             .success(function(data){
-                angular.forEach($scope.meeting.topics, function(note) {
-                    if(note.status == "Ready"){
-                        note.votes = 0;
-                    }
-                });
-//                Yet to implement socket code
-            });
-        Meeting.resetVotesUsers($scope.meeting._id)
-            .success(function(data){
-                currentUser.votesRemaining = 5;
-                angular.forEach($scope.meeting.users, function(user) {
-                        user.votes = 5;
-                });
-//                Yet to implement socket code
+                socket.emit('resetVotes', {_id:$scope.meeting._id});
             });
     };
+
+    socket.on('onResetVotes', function(data){
+        angular.forEach($scope.meeting.topics, function(note) {
+            if(note.status == "Ready"){
+                note.votes = 0;
+            }
+        });
+        currentUser.votesRemaining = 5;
+        angular.forEach($scope.meeting.users, function(user) {
+            user.votesRemaining = 5;
+        });
+    });
 
 });

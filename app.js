@@ -65,6 +65,10 @@ io.sockets.on('connection', function(socket) {
         socket.broadcast.emit('onStatusChange', data);
     });
 
+    socket.on('resetVotes', function(data){
+        socket.broadcast.emit('onResetVotes', data);
+    });
+
     socket.on('deleteNote', function(data){
         socket.broadcast.emit('onNoteDeleted', data);
     });

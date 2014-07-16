@@ -32,11 +32,8 @@ angular.module('meetingService', [])
                 decVoteUser : function(meeting){
                     return $http.put('/api/user/decVote', meeting);
                 },
-                resetVotesTopics : function(id){
-                    return $http.put('/api/topics/resetVotes', {id: id});
-                },
-                resetVotesUsers : function(id){
-                    return $http.put('/api/users/resetVotes', {id: id});
+                resetVotes : function(meeting){
+                    return $http.put('/api/resetVotes', meeting);
                 }
             }
         }

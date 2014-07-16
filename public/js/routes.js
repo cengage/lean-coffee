@@ -87,25 +87,37 @@ module.exports = function(app){
         })
     });
 
-    app.put('/api/topics/resetVotes', function(req, res){
-        Meeting.update({ _id: req.body.id, "topics.votes": {$gte: 1}}, {
-                $set : {"topics.$.votes" : 0}
-            }, function(err, meeting){
+    app.put('/api/resetVotes', function(req, res){
+//        Meeting.update({ _id: req.body.id, "topics.votes": {$gte: 1}}, {
+//                $set : {"topics.$.votes" : 0}
+//            }, function(err, meeting){
+//            if(err)
+//                res.send(err);
+//            res.json(meeting);
+//        })
+        Meeting.update({
+            "_id" : req.body._id
+        }, {
+            $set: {
+                topics: req.body.topics,
+                users: req.body.users
+            }
+        },function(err, meeting){
             if(err)
                 res.send(err);
             res.json(meeting);
-        })
+        });
     });
 
-    app.put('/api/users/resetVotes', function(req, res){
-        Meeting.update({ _id: req.body.id, "users.votesRemaining": {$lt: 5}}, {
-            $set : {"users.$.votesRemaining" : 5}
-        }, function(err, meeting){
-            if(err)
-                res.send(err);
-            res.json(meeting);
-        })
-    });
+//    app.put('/api/users/resetVotes', function(req, res){
+//        Meeting.update({ _id: req.body.id, "users.votesRemaining": {$lt: 5}}, {
+//            $set : {"users.$.votesRemaining" : 5}
+//        }, function(err, meeting){
+//            if(err)
+//                res.send(err);
+//            res.json(meeting);
+//        })
+//    });
 
     // application -------------------------------------------------------------
     app.get('/', function(req, res) {
