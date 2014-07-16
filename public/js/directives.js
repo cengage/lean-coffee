@@ -24,9 +24,9 @@ angular.module('leanNotes.directives', [])
 
     .directive('stickyNoteCreate', function() {
         var linker = function(scope, element) {
-            element.draggable({
-                snap: ".row,.sticky-note"
-                });
+//            element.draggable({
+//                //snap: ".row,.sticky-note"
+//                });
 
             // Some DOM initiation to make it nice
             element.css('left', '50px');

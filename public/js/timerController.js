@@ -2,9 +2,8 @@ angular.module('timerController', [])
     .controller('myController',function($scope,$timeout,socket)
     {
         $scope.timestuff="";
-        $scope.timercounter =10;
-        $scope.MinTimeLimit=7;
-
+        $scope.timercounter = 1 * 60; // at the place of the number one; we should place the user entered value for time/card
+        $scope.MinTimeLimit= 0.5 * 60; // at the place of the number 0.5; we should place the user entered value for warning for time left
 
         var hours = parseInt( $scope.timercounter / 3600 ) % 24;
         var minutes = parseInt( $scope.timercounter / 60 ) % 60;
