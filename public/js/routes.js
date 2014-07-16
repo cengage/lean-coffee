@@ -77,6 +77,16 @@ module.exports = function(app){
         } )
     });
 
+    app.put('/api/topic/remove', function(req, res){
+       Meeting.update( { _id: req.body._id}, {
+           $pull: {topics: req.body.currentTopic}
+           },function(err, meeting) {
+               if(err)
+                   res.send(err);
+               res.json(meeting);
+           } )
+    });
+
     app.put('/api/user/decVote', function(req, res){
         Meeting.update({ _id: req.body._id, "users._id": req.body.currentUser._id}, {
             $inc: {"users.$.votesRemaining" : -1}

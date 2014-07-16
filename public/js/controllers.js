@@ -189,9 +189,16 @@ angular.module('leanNotes.controllers', [])
         var oldNotes = $scope.meeting.topics,
             newNotes = [];
         angular.forEach(oldNotes, function(note) {
-            if(note._id !== _id) newNotes.push(note);
+            if(note._id !== _id)
+                newNotes.push(note)
+            else
+                $scope.meeting.currentTopic = note;
         });
         $scope.meeting.topics = newNotes;
+        Meeting.deleteTopic($scope.meeting)
+            .success(function(data){
+
+            });
     };
 
     $scope.voteUp = function(note) {
