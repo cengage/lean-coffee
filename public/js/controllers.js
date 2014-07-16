@@ -42,7 +42,9 @@ angular.module('leanNotes.controllers', [])
 
     // Incoming
     socket.on('onNoteCreated', function(data) {
-        $scope.meeting.topics.push(data);
+        if(currentUser.email){
+            $scope.meeting.topics.push(data);
+        }
     });
 
     socket.on('onNoteDeleted', function(data) {
@@ -99,8 +101,8 @@ angular.module('leanNotes.controllers', [])
 
         if($scope.meeting._id == null){
             alert("Meeting is not validated yet");
-        }else if($(".usernameInput").val()==""){
-            alert("Enter your name first");
+        }else if($(".usernameInput").val()=="" && $(".userEmail").val()==""){
+            alert("Enter your name and email");
         }else{
             currentUser = {
                 email: $(".userEmail").val(),
