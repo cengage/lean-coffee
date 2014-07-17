@@ -37,7 +37,7 @@ angular.module('leanNotes.controllers', [])
                 console.log(sessionStorage.CurrUser);
                 currentUser.name = sessionStorage.CurrUser;
                 currentUser.email = sessionStorage.email;
-                currentUser.votesRemaining = 5;
+                currentUser.votesRemaining = $scope.meeting.configurations.votesPerUser;
                 $scope.meeting.currentUser = currentUser;
                 Meeting.getMeeting($scope.meeting._id)
                     .success(function (data) {
@@ -136,7 +136,7 @@ angular.module('leanNotes.controllers', [])
             currentUser = {
                 email: $(".userEmail").val(),
                 name : $(".usernameInput").val(),
-                votesRemaining : 5
+                votesRemaining : $scope.meeting.configurations.votesPerUser
             };
 
             for(var i = 0; i < $scope.meeting.users.length; i++)
@@ -220,7 +220,7 @@ angular.module('leanNotes.controllers', [])
             newNotes = [];
         angular.forEach(oldNotes, function(note) {
             if(note._id !== _id)
-                newNotes.push(note)
+                newNotes.push(note);
             else
                 $scope.meeting.currentTopic = note;
         });
@@ -233,7 +233,7 @@ angular.module('leanNotes.controllers', [])
 
     $scope.voteUp = function(note) {
         if(currentUser.votesRemaining <= 0){
-            alert("You finished your 5 votes");
+            alert("You finished all your votes");
             return;
         }
         note.votes += 1;
@@ -272,9 +272,9 @@ angular.module('leanNotes.controllers', [])
                 note.votes = 0;
             }
         });
-        currentUser.votesRemaining = 5;
+        currentUser.votesRemaining = $scope.meeting.configurations.votesPerUser;
         angular.forEach($scope.meeting.users, function(user) {
-            user.votesRemaining = 5;
+            user.votesRemaining = $scope.meeting.configurations.votesPerUser;
         });
         Meeting.resetVotes($scope.meeting)
             .success(function(data){
@@ -288,9 +288,9 @@ angular.module('leanNotes.controllers', [])
                 note.votes = 0;
             }
         });
-        currentUser.votesRemaining = 5;
+        currentUser.votesRemaining = $scope.meeting.configurations.votesPerUser;
         angular.forEach($scope.meeting.users, function(user) {
-            user.votesRemaining = 5;
+            user.votesRemaining = $scope.meeting.configurations.votesPerUser;
         });
     });
 
