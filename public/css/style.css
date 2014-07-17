@@ -218,3 +218,13 @@ body {
 .toggle {
     margin: 5px 5px 0 0;
 }
+
+.sideBarLabel{
+
+    margin: 0px;
+    text-align:left;
+    color:#999999 ;
+    text-indent: -20px;
+
+
+}
