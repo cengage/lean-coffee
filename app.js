@@ -69,6 +69,10 @@ io.sockets.on('connection', function(socket) {
         socket.broadcast.emit('onResetVotes', data);
     });
 
+    socket.on('saveConfig', function(data){
+        socket.broadcast.emit('onSaveConfig', data);
+    });
+
     socket.on('deleteNote', function(data){
         socket.broadcast.emit('onNoteDeleted', data);
     });

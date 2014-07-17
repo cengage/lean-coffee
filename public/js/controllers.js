@@ -105,11 +105,8 @@ angular.module('leanNotes.controllers', [])
     });
 
     socket.on('onUserJoin',function(data){
-        //alert('receive user joining event' );
-        //alert(data);
         $scope.meeting.users = data;
-        });
-    // Outgoing
+    });
 
     socket.on('onNoteUpdated', function(data) {
         angular.forEach($scope.meeting.topics, function(note) {
@@ -295,6 +292,17 @@ angular.module('leanNotes.controllers', [])
         angular.forEach($scope.meeting.users, function(user) {
             user.votesRemaining = 5;
         });
+    });
+
+    $scope.saveConfig = function(){
+        Meeting.saveConfig($scope.meeting)
+            .success(function(data){
+                socket.emit('saveConfig', $scope.meeting.configurations);
+            });
+    };
+
+    socket.on('onSaveConfig', function(data){
+        $scope.meeting.configurations = data;
     });
 
 });
