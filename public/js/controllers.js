@@ -297,6 +297,8 @@ angular.module('leanNotes.controllers', [])
     $scope.saveConfig = function(){
         Meeting.saveConfig($scope.meeting)
             .success(function(data){
+                $("#setting-sidebar-wrapper").toggleClass("active");
+                $scope.timercounter = $scope.meeting.configurations.timePerTopic * 60;
                 socket.emit('saveConfig', $scope.meeting.configurations);
             });
     };
