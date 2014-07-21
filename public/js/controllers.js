@@ -31,38 +31,27 @@ angular.module('leanNotes.controllers', [])
     Meeting.getMeeting($routeParams.meetingId)
         .success(function(data){
             $scope.meeting = data;
-            $scope.meeting.topics = [];
-            if (sessionStorage.CurrUser != undefined ||  sessionStorage.CurrUser != null) {
 
-                console.log(sessionStorage.CurrUser);
-                currentUser.name = sessionStorage.CurrUser;
-                currentUser.email = sessionStorage.email;
-                currentUser.votesRemaining = $scope.meeting.configurations.votesPerUser;
-                $scope.meeting.currentUser = currentUser;
-                Meeting.getMeeting($scope.meeting._id)
-                    .success(function (data) {
-                        $scope.meeting = data;
-                        currentUser = $scope.meeting.users.slice(-1)[0];
+            if(sessionStorage.meetingId == $scope.meeting._id){
+                for(var i = 0; i < $scope.meeting.users.length; i++)
+                {
+                    if($scope.meeting.users[i]._id == sessionStorage.userId)
+                    {
+                        currentUser = $scope.meeting.users[i];
                         $scope.meeting.currentUser = currentUser;
-                        //console.log("joining yo!!!");
-                        //alert("joining yo!!!");
-                        socket.emit('userJoin', $scope.meeting.users);
-                    })
-                    .error(function (error) {
-                        alert(error);
-                    });
-                $("#usernme").val('');
-                $("#usernameEmail").val('');
-                $("#usernme").hide();
-                $("#usernameEmail").hide();
-                $("#joinButton").hide();
-                $("#createButton").show("slow");
-                $("#leaveButton").show("slow");
-                $("#resetButton").show("slow");
-
+                        $("#usernme").val('');
+                        $("#usernameEmail").val('');
+                        $("#usernme").hide();
+                        $("#usernameEmail").hide();
+                        $("#joinButton").hide();
+                        $("#createButton").show("slow");
+                        $("#leaveButton").show("slow");
+                        $("#resetButton").show("slow");
+                    }
+                }
             }
-
-
+            if(!currentUser._id)
+                $scope.meeting.topics = [];
         })
         .error(function(err){
             $location.path('/Meeting');
@@ -125,14 +114,11 @@ angular.module('leanNotes.controllers', [])
     };
 
     $scope.userJoin = function(){
-        if (sessionStorage.CurrUser == 'undefined' ||  sessionStorage.CurrUser == null) {
         if($scope.meeting._id == null){
             alert("Meeting is not validated yet");
         }else if($(".usernameInput").val()=="" && $(".userEmail").val()==""){
             alert("Enter your name and email");
         }else{
-            sessionStorage.CurrUser = $(".usernameInput").val();
-            sessionStorage.email = $(".userEmail").val();
             currentUser = {
                 email: $(".userEmail").val(),
                 name : $(".usernameInput").val(),
@@ -155,6 +141,8 @@ angular.module('leanNotes.controllers', [])
                     $scope.meeting = data;
                     currentUser = $scope.meeting.users.slice(-1)[0];
                     $scope.meeting.currentUser = currentUser;
+                    sessionStorage.meetingId = $scope.meeting._id;
+                    sessionStorage.userId = currentUser._id;
                     socket.emit('userJoin', $scope.meeting.users);
                 })
                 .error(function(error){
@@ -169,8 +157,6 @@ angular.module('leanNotes.controllers', [])
             $("#leaveButton").show("slow");
             $("#resetButton").show("slow");
         }
-        }
-
     };
 
     $scope.createNote = function() {
