@@ -88,7 +88,7 @@
                 <h2>Ready</h2>
                 <div sticky-note ng-repeat="note in meeting.topics | orderBy:'votes':true" note="note" class="alert alert-success sticky-note" ng-show="note.status == 'Ready'">
                     <button type="button" class="close" ng-click="deleteNote(note._id)">&times;</button>
-                    <button type="button" class="glyphicon glyphicon-arrow-right mybutton" ng-click="changeStatus(note)"></button>
+                    <button type="button" class="btn btn-primary mybutton" ng-click="changeStatus(note)">Change to Doing</button>
                     <input ng-model="note.title" ng-change="updateNote(note)" type="text" class="title" >
                     <textarea ng-model="note.content" ng-change="updateNote(note)" class="body">{{note.content}}</textarea>
                     <label>Created By: {{note.assignedTo}}</label>
@@ -122,7 +122,7 @@
                 </h2>
                 <div sticky-note ng-repeat="note in meeting.topics" note="note" class="alert alert-success sticky-note" ng-show="note.status == 'Doing'">
                     <button  type="button" class="close" ng-click="deleteNote(note._id)">&times;</button>
-                    <button type="button" class="glyphicon glyphicon-arrow-right mybutton" ng-click="changeStatus(note)"></button>
+                    <button type="button" class="btn btn-primary mybutton" ng-click="changeStatus(note)">Change to Done</button>
                     <input ng-model="note.title" ng-change="updateNote(note)" type="text" class="title" >
                     <textarea ng-model="note.content" ng-change="updateNote(note)" class="body">{{note.content}}</textarea>
                     <label>Created By: {{note.assignedTo}}</label>
@@ -131,12 +131,22 @@
                     <!--<button type="button" class="close" ng-click="voteUp(note)"><span class="glyphicon glyphicon-thumbs-up"></span></button>-->
                     <!--<button type="button" class="close"><span class="glyphicon glyphicon-thumbs-down"></span></button>-->
                 </div>
+
+
+                <!--&lt;!&ndash; begin htmlcommentbox.com &ndash;&gt;-->
+                <!--<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>-->
+                <!--<link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />-->
+                <!--<script type="text/javascript" id="hcb"> /*&lt;!&ndash;*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=(""+window.location).replace(/'/g,"%27") || hcb_user.PAGE, h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*&ndash;&gt;*/ </script>-->
+                <!--&lt;!&ndash; end htmlcommentbox.com &ndash;&gt;-->
+
+
+
             </div>
             <div class="col-md-4">
                 <h2>Done</h2>
                 <div sticky-note ng-repeat="note in meeting.topics" note="note" class="alert alert-success sticky-note" ng-show="note.status == 'Done'">
                     <button type="button" class="close" ng-click="deleteNote(note._id)">&times;</button>
-                    <button type="button"  class="glyphicon glyphicon-arrow-left mybutton" ng-click="changeStatus(note)"></button>
+                    <button type="button"  class="btn btn-primary mybutton" ng-click="changeStatus(note)">Reset to Ready</button>
                     <input ng-model="note.title" ng-change="updateNote(note)" type="text" class="title" >
                     <textarea ng-model="note.content" ng-change="updateNote(note)" class="body">{{note.content}}</textarea>
                     <label>Created By: {{note.assignedTo}}</label>
@@ -145,6 +155,9 @@
                     <!--<button type="button" class="close" ng-click="voteUp(note)"><span class="glyphicon glyphicon-thumbs-up"></span></button>-->
                     <!--<button type="button" class="close"><span class="glyphicon glyphicon-thumbs-down"></span></button>-->
                 </div>
+
+                <!--arrow-left mybutton-->
+                <!--glyphicon glyphicon-star-->
             </div>
 
         </div>
