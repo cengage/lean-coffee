@@ -88,6 +88,10 @@ io.sockets.on('connection', function(socket) {
     socket.on('stop', function(data){
         socket.broadcast.emit('onstop', data);
     });
+
+    socket.on('SyncTime', function(data){
+        socket.broadcast.emit('onSyncTime', data);
+    });
 });
 
 server.listen(process.env.PORT || 4545, function(){

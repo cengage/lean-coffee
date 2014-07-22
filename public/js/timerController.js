@@ -24,7 +24,7 @@ angular.module('timerController', [])
                 extendedTime= data.configurations.extraTimePerTopic;
                 votes = data.configurations.votesPerUser;
                 $scope.timestuff="";
-                $scope.timercounter = parseInt( timeCard) * 60; // at the place of the number one; we should place the user entered value for time/card
+                $scope.timercounter = parseFloat( timeCard) * 60; // at the place of the number one; we should place the user entered value for time/card
                 $scope.MinTimeLimit= 60; // at the place of the number 0.5; we should place the user entered value for warning for time left
                 var hours = parseInt( $scope.timercounter / 3600 ) % 24;
                 var minutes = parseInt( $scope.timercounter / 60 ) % 60;
@@ -38,6 +38,9 @@ angular.module('timerController', [])
             });
         var mytimeout = 0;
 
+        socket.on('onSyncTime',function(data){
+            $scope.handleSyncTime(data);
+        });
         socket.on('onplay',function(){
             $scope.handlePlay();
         });
@@ -48,25 +51,34 @@ angular.module('timerController', [])
             $scope.handleStop();
         });
 
+        $scope.handleSyncTime= function(data){
+            //console.log("#YOLO");
+            if(socket.id!=data.myId)
+                $scope.timercounter  = data.timerData;
+        }
+
         $scope.play = function(){
             $scope.handlePlay();
             console.log("I am played and I have emitted");
-
             socket.emit('play');
         }
 
         $scope.handlePlay = function(){
             $scope.onTimeout = function(){
+                if((($scope.timercounter%5)==0)&& $scope.timercounter!=0)
+                {
+                    //$scope.handleSyncTime($scope.timercounter);
+                    //console.log("I should be seen every 5 seconds " + $scope.timercounter);
+                    var tempdata ={
+                        myId : socket.id, timerData:$scope.timercounter
+                    };
+                    socket.emit('SyncTime',tempdata);
+                }
                 if($scope.timercounter <= $scope.MinTimeLimit && $scope.timercounter!=0)
                 {
-                    //$(".myTimerDisplay").css("color","red").fadeIn("slow");
                     $(".myTimerDisplay").css("color","red").fadeOut("slow");
                     $(".myTimerDisplay").css("color","red").fadeIn("slow");
                 }
-//                else
-//                {
-//                    $(".myTimerDisplay").css("color","black");
-//                }
                 if($scope.timercounter!=0)
                 {
                     $scope.timercounter--;
@@ -75,7 +87,6 @@ angular.module('timerController', [])
                     var seconds = $scope.timercounter % 60;
                     $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
                     mytimeout = $timeout($scope.onTimeout,1000);
-
                 }
                 else
                 {
