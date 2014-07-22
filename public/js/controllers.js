@@ -293,4 +293,19 @@ angular.module('leanNotes.controllers', [])
         $scope.meeting.configurations = data;
     });
 
+    $scope.userLeave = function () {
+        $scope.meeting.topics = [];
+        currentUser = {};
+        sessionStorage.meetingId = null;
+        sessionStorage.userId = null;
+        $("#usernme").val('');
+        $("#usernameEmail").val('');
+        $("#usernme").show("slow");
+        $("#usernameEmail").show("slow");
+        $("#joinButton").show("slow");
+        $("#createButton").hide("slow");
+        $("#leaveButton").hide("slow");
+        $("#resetButton").hide("slow");
+    };
+
 });
