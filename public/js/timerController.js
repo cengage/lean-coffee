@@ -1,8 +1,21 @@
 angular.module('timerController', [])
-    .controller('myController',function($scope,$timeout,socket,$routeParams,Meeting)
+    .controller('myController',function($scope,$timeout,socket,$routeParams,Meeting,timerData)
     {
         var timeCard=0; var extendedTime =0; var votes = 0;
 
+
+        $scope.$watch(function () { return timerData.getTimerCounter(); }, function (newValue) {
+            if (newValue) {timeCard = newValue;
+                $scope.timestuff="";
+                $scope.timercounter = parseFloat( timeCard) * 60; // at the place of the number one; we should place the user entered value for time/card
+                $scope.MinTimeLimit= 60; // at the place of the number 0.5; we should place the user entered value for warning for time left
+                var hours = parseInt( $scope.timercounter / 3600 ) % 24;
+                var minutes = parseInt( $scope.timercounter / 60 ) % 60;
+                var seconds = $scope.timercounter % 60;
+                $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+
+            }
+        });
 
         Meeting.getMeeting($routeParams.meetingId)
             .success(function(data){

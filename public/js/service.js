@@ -43,7 +43,21 @@ angular.module('meetingService', [])
         catch(err){
             console.log(err.message);
         }
-    });
+    }).factory('timerData', function(){
+    var data =
+    {
+        timerCounter: ''
+    };
+
+    return {
+        getTimerCounter: function () {
+            return data.timerCounter;
+        },
+        setTimerCounter: function (timercount) {
+            data.timerCounter = timercount;
+        }
+    };
+});
 
 angular.module('leanNotes.services', [])
 .factory('socket', function($rootScope) {

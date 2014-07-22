@@ -22,11 +22,16 @@ angular.module('meetingController', [])
     });
 
 angular.module('leanNotes.controllers', [])
-.controller('Main', function($scope, socket, $routeParams, Meeting, $location) {
+.controller('Main', function($scope, socket, $routeParams, Meeting, $location,timerData) {
     $scope.meeting = {};
     $scope.meeting.topics = [];
     $scope.meeting.users = [];
     var currentUser = {};
+        //a $watch to watch for any changes to meeting.configurations.timePerTopic and share it across the variables
+        $scope.$watch('meeting.configurations.timePerTopic', function (newValue) {
+            if (newValue) timerData.setTimerCounter(newValue);
+        });
+
 
     Meeting.getMeeting($routeParams.meetingId)
         .success(function(data){
