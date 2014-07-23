@@ -113,7 +113,6 @@ angular.module('leanNotes.controllers', [])
         });
     });
 
-
     $scope.updateNote = function(note) {
         socket.emit('updateNote', note);
     };
@@ -312,5 +311,4 @@ angular.module('leanNotes.controllers', [])
         $("#leaveButton").hide("slow");
         $("#resetButton").hide("slow");
     };
-
 });
