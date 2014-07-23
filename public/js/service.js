@@ -37,6 +37,9 @@ angular.module('meetingService', [])
                 },
                 saveConfig : function(meeting){
                     return $http.put('/api/config', meeting);
+                },
+                changeTopic : function(meeting){
+                    return $http.put('/api/topic/changeText', meeting);
                 }
             }
         }

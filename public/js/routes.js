@@ -136,6 +136,16 @@ module.exports = function(app){
         })
     });
 
+    app.put('/api/topic/changeText', function(req, res){
+        Meeting.update( { _id: req.body._id, "topics._id": req.body.currentTopic._id }, {
+            $set: { "topics.$.title" : req.body.currentTopic.title, "topics.$.content" : req.body.currentTopic.content}
+        }, function(err, meeting) {
+            if(err)
+                res.send(err);
+            res.json(meeting);
+        } )
+    });
+
     // application -------------------------------------------------------------
     app.get('/', function(req, res) {
         res.sendfile('./public/index.html');

@@ -113,8 +113,13 @@ angular.module('leanNotes.controllers', [])
         });
     });
 
+
     $scope.updateNote = function(note) {
-        socket.emit('updateNote', note);
+        $scope.meeting.currentTopic = note;
+        Meeting.changeTopic($scope.meeting)
+            .success(function(data){
+                socket.emit('updateNote', note);
+            });
     };
 
     $scope.userJoin = function(){
