@@ -33,7 +33,7 @@ angular.module('leanNotes.controllers', [])
             if (newValue) timerData.setTimerCounter(newValue);
         });
 
-        $scope.$watch('voteThisTimer', function (newValue) {
+        $scope.$watch('voteThisNote', function (newValue) {
             if (newValue) timerData.setMyVoteCounter(newValue);
         });
 

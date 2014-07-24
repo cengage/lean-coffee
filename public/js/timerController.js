@@ -18,7 +18,8 @@ angular.module('timerController', [])
         });
 
         $scope.$watch(function () { return timerData.getMyVoteCounter(); }, function (newValue) {
-            if (newValue) {
+            console.log("The Value is " + newValue);
+            if (newValue && newValue >0) {
                 Meeting.getMeeting($routeParams.meetingId)
                     .success(function(data){
 
