@@ -221,6 +221,14 @@ angular.module('leanNotes.controllers', [])
             socket.emit('deleteNote', {_id: _id});
         };
 
+        $scope.ResetVoteThisNote = function(voteThisNote){
+            $scope.voteThisNote =0;
+            socket.emit('ResetVoteThisNote', $scope.voteThisNote);
+        }
+        $scope.handleResetVoteThisNote=function(data){
+            $scope.voteThisNote = data;
+        };
+
         $scope.handleDeletedNoted = function(_id) {
             var oldNotes = $scope.meeting.topics,
                 newNotes = [];

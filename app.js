@@ -100,6 +100,12 @@ io.sockets.on('connection', function(socket) {
     socket.on('SyncTime', function(data){
         socket.broadcast.emit('onSyncTime', data);
     });
+
+
+    socket.on('ResetVoteThisNote', function(data){
+        socket.broadcast.emit('onResetVoteThisNote', data)
+    });
+
 });
 
 server.listen(process.env.PORT || 4545, function(){
