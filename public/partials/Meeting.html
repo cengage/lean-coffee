@@ -40,6 +40,26 @@
                         </div>
                     </div>
                 </form>
+                <!-- Chat menu -->
+                <a id="menu-chat" class="btn btn-primary btn-lg toggle"><i class="glyphicon glyphicon-envelope"></i></a>
+                <div id="sidebar-chat">
+                    <ul class="sidebar-nav-chat">
+                        <a id="chat-close" href="#" class="btn btn-danger glyphicon glyphicon-arrow-right pull-right toggle"><i class="fa fa-times"></i></a>
+                        <li class="sidebar-brand"><a>Chat Box</a>
+                        </li>
+                        <form id ="chat">
+                            <li id="chat-display">
+                            </li>
+                            <textarea id="chat-input">
+                            </textarea>
+                            <div class="center">
+                                <input type="submit">
+                            </div>
+
+                        </form>
+                    </ul>
+                </div>
+                <!-- Chat menu -->
 
                 <!-- Side Menu -->
                 <a id="menu-toggle" class="btn btn-primary btn-lg toggle"><i class="glyphicon glyphicon-th-list"></i></a>
@@ -200,5 +220,18 @@
     $("#setting-close").click(function(e) {
         e.preventDefault();
         $("#setting-sidebar-wrapper").toggleClass("active");
+    });
+</script>
+<!-- Custom JavaScript for the Side Chatting and Smooth Scrolling -->
+<script>
+    $("#menu-chat").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-chat").toggleClass("active");
+    });
+</script>
+<script>
+    $("#chat-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-chat").toggleClass("active");
     });
 </script>

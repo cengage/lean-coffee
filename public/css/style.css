@@ -113,6 +113,93 @@ body {
     margin-top:  10%;
     overflow:hidden;
 }
+/* Chat Menu */
+#sidebar-chat {
+    margin-right: -500px;
+    right: 0px;
+    width: 500px;
+    background: #000;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    -webkit-transition: all 0.8s ease 0s;
+    -moz-transition: all 0.8s ease 0s;
+    -ms-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+}
+.sidebar-nav-chat li {
+    line-height: 40px;
+    text-indent: 20px;
+}
+.sidebar-nav-chat li a {
+    color: #999999;
+    display: block;
+    text-decoration: none;
+}
+.sidebar-nav-chat li a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+    text-decoration: none;
+}
+.sidebar-nav-chat li a:active,
+.sidebar-nav-chat li a:focus {
+    text-decoration: none;
+}
+.sidebar-nav-chat > .sidebar-brand {
+    height: 55px;
+    line-height: 55px;
+    font-size: 18px;
+}
+.sidebar-nav-chat > .sidebar-brand a {
+    color: #999999;
+}
+.sidebar-nav-chat > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+#chat-display {
+    margin-top: 0px !important;
+    width:440px;
+    margin:30px;
+    height:600px;
+    resize:none;
+    border:3px solid #cccccc;
+    padding:5px;
+    font-family:Tahoma,sans-serif;
+}
+#chat-input{
+    margin-top: 0px !important;
+    width:440px;
+    margin:30px;
+    height:50px;
+    resize:none;
+    border:3px solid #cccccc;
+    padding:5px;
+    row:3;
+    font-family:Tahoma,sans-serif;
+}
+div.center{
+    margin-left:auto !important;
+    margin-right:auto !important;
+}
+#menu-chat {
+    top: 0;
+    right: 55px;
+    position: fixed;
+    z-index: 1;
+    background-color:green;
+}
+#sidebar-chat.active {
+    right: 500px;
+    width: 500px;
+    -webkit-transition: all 0.8s ease 0s;
+    -moz-transition: all 0.8s ease 0s;
+    -ms-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.4s ease 0s;
+}
 /* Side Menu */
 #sidebar-wrapper {
     margin-right: -250px;
