@@ -17,6 +17,31 @@ angular.module('timerController', [])
             }
         });
 
+        $scope.$watch(function () { return timerData.getMyVoteCounter(); }, function (newValue) {
+            if (newValue) {
+                Meeting.getMeeting($routeParams.meetingId)
+                    .success(function(data){
+
+                        timeCard = data.configurations.timePerTopic;
+                        extendedTime= data.configurations.extraTimePerTopic;
+                        votes = data.configurations.votesPerUser;
+                        $scope.timestuff="";
+                        $scope.timercounter = parseFloat( extendedTime) * 60; // at the place of the number one; we should place the user entered value for time/card
+                        $scope.MinTimeLimit= 60; // at the place of the number 0.5; we should place the user entered value for warning for time left
+                        var hours = parseInt( $scope.timercounter / 3600 ) % 24;
+                        var minutes = parseInt( $scope.timercounter / 60 ) % 60;
+                        var seconds = $scope.timercounter % 60;
+                        $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+
+                    })
+                    .error(function(err){
+                        $location.path('/Meeting');
+                        alert("This is not a valid meeting, please check the link")
+                    });
+
+            }
+        });
+
         Meeting.getMeeting($routeParams.meetingId)
             .success(function(data){
 

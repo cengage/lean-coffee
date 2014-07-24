@@ -20,6 +20,9 @@ html,body,.container
     background: rgb(51, 153, 255); /* this is a light blue */
 
 }
+.mycounter{
+    margin-right:15px;
+}
 .row
 {
     height: 100%;

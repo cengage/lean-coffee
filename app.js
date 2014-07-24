@@ -61,6 +61,14 @@ io.sockets.on('connection', function(socket) {
         socket.broadcast.emit('onVoteUp', data)
     });
 
+    socket.on('voteUpThisNote', function(data){
+        socket.broadcast.emit('onVoteUpThisNote', data)
+    });
+
+    socket.on('voteDownThisNote', function(data){
+        socket.broadcast.emit('onVoteDownThisNote', data)
+    });
+
     socket.on('statusChange', function(data){
         socket.broadcast.emit('onStatusChange', data);
     });

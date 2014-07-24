@@ -49,16 +49,23 @@ angular.module('meetingService', [])
     }).factory('timerData', function(){
     var data =
     {
-        timerCounter: ''
+        timerCounter: '', myVoteCounter:''
     };
 
     return {
+        getMyVoteCounter: function () {
+            return data.myVoteCounter;
+        },
+        setMyVoteCounter: function (VoteCounter) {
+            data.myVoteCounter = VoteCounter;
+        },
         getTimerCounter: function () {
             return data.timerCounter;
         },
         setTimerCounter: function (timercount) {
             data.timerCounter = timercount;
         }
+
     };
 });
 

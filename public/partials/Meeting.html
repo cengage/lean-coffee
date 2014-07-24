@@ -102,9 +102,9 @@
                 <h2>Doing<ul class="nav navbar-nav navbar-right" ng-controller="myController">
                     <!--buttons for extending the timer in the doing section-->
                     <li class ="MyTimerButton">
-                        <button id="thumbUpBtnDoing" type="button" class="close" ng-click="">
+                        <button id="thumbUpBtnDoing" type="button" class="close" ng-click="voteUpThisNote(voteThisNote)">
 
-                            <span class="close">{{note.votes}}</span>
+
                             <span class="glyphicon glyphicon-thumbs-up"></span>
                         </button>
                     </li>
@@ -114,11 +114,14 @@
                         </button>
                     </li>
                     <li class ="MyTimerButton">
-                        <button id="thumbDownBtnDoing" type="button" class="close" ng-click="">
+                        <button id="thumbDownBtnDoing" type="button" class="close" ng-click="voteDownThisNote(voteThisNote)">
                             <span class="glyphicon glyphicon-thumbs-down"></span>
                         </button>
+
+
                     </li>
                 </ul>
+                    <span class="mycounter pull-right">{{voteThisNote}} </span>
                 </h2>
                 <div sticky-note ng-repeat="note in meeting.topics" note="note" class="alert alert-success sticky-note" ng-show="note.status == 'Doing'">
                     <button  type="button" class="close" ng-click="deleteNote(note._id)">&times;</button>
