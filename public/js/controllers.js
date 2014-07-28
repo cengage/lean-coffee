@@ -41,12 +41,9 @@ angular.module('leanNotes.controllers', [])
         Meeting.getMeeting($routeParams.meetingId)
             .success(function(data){
                 $scope.meeting = data;
-
                 if(sessionStorage.meetingId == $scope.meeting._id){
-                    for(var i = 0; i < $scope.meeting.users.length; i++)
-                    {
-                        if($scope.meeting.users[i]._id == sessionStorage.userId)
-                        {
+                    for(var i = 0; i < $scope.meeting.users.length; i++)                    {
+                        if($scope.meeting.users[i]._id == sessionStorage.userId){
                             currentUser = $scope.meeting.users[i];
                             $scope.meeting.currentUser = currentUser;
                             $("#usernme").val('');
