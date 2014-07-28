@@ -49,10 +49,15 @@
                         </li>
                         <form id ="chat">
                             <li id="chat-display">
+                                <ul>
+                                    <li ng-repeat="chat in meeting.chats">
+                                        <p>{{chat.name}} : {{chat.message}}</p>
+                                    </li>
+                                </ul>
                             </li>
-                            <textarea id="chat-input">
+                            <textarea ng-model="chatInput" id="chat-input">
                             </textarea>
-                            <center><button class="btn btn-lg btn-primary btn-block" id="sendBtn" ng-click="#">Send</button></center>
+                            <center><button class="btn btn-lg btn-primary btn-block" id="sendBtn" ng-click="sendChat()">Send</button></center>
                         </form>
                     </ul>
                 </div>

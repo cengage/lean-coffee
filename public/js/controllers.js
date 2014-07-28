@@ -26,8 +26,10 @@ angular.module('leanNotes.controllers', [])
         $scope.meeting = {};
         $scope.meeting.topics = [];
         $scope.meeting.users = [];
+        $scope.meeting.chats = [];
         $scope.voteThisNote =0;
         var currentUser = {};
+
         //a $watch to watch for any changes to meeting.configurations.timePerTopic and share it across the variables
         $scope.$watch('meeting.configurations.timePerTopic', function (newValue) {
             if (newValue) timerData.setTimerCounter(newValue);
@@ -36,7 +38,6 @@ angular.module('leanNotes.controllers', [])
         $scope.$watch('voteThisNote', function (newValue) {
             if (newValue) timerData.setMyVoteCounter(newValue);
         });
-
 
         Meeting.getMeeting($routeParams.meetingId)
             .success(function(data){
@@ -349,4 +350,16 @@ angular.module('leanNotes.controllers', [])
             $("#leaveButton").hide("slow");
             $("#resetButton").hide("slow");
         };
+
+        $scope.sendChat = function(){
+            $scope.meeting.currentChat = {name: $scope.meeting.currentUser.name, message: $scope.chatInput};
+            $scope.meeting.chats.push($scope.meeting.currentChat);
+            Meeting.updateChats($scope.meeting)
+                .success(function(data){
+                    socket.emit('createNote', $scope.meeting.currentChat);
+                    $scope.chatInput = ""; $scope.meeting.currentChat = {};
+                });
+
+        };
+
     });

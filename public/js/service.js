@@ -40,6 +40,9 @@ angular.module('meetingService', [])
                 },
                 changeTopic : function(meeting){
                     return $http.put('/api/topic/changeText', meeting);
+                },
+                updateChats : function(meeting){
+                    return $http.put('/api/chat', meeting);
                 }
             }
         }

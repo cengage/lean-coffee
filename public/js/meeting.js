@@ -27,5 +27,11 @@ module.exports = mongoose.model('Meeting', {
             votes : Number,
             assignedTo : String
         }
+    ],
+    chats : [
+        {
+            name : String,
+            message : String
+        }
     ]
 });

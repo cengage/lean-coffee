@@ -146,6 +146,16 @@ module.exports = function(app){
         } )
     });
 
+    app.put('/api/chat', function(req, res){
+        Meeting.findOneAndUpdate({_id : req.body._id}, {
+            $push : { chats : req.body.currentChat}
+        }, function (err, meeting) {
+            if(err)
+                res.send(err);
+            res.json(meeting);
+        });
+    });
+
     // application -------------------------------------------------------------
     app.get('/', function(req, res) {
         res.sendfile('./public/index.html');
