@@ -44,6 +44,10 @@ io.sockets.on('connection', function(socket) {
 
     });
 
+    socket.on('createChat', function(data){
+        socket.broadcast.emit('onCreateChat', data);
+    });
+
     socket.on('createNote', function(data) {
         console.log('emit note creating event');
         socket.broadcast.emit('onNoteCreated', data);

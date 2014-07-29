@@ -350,13 +350,17 @@ angular.module('leanNotes.controllers', [])
 
         $scope.sendChat = function(){
             $scope.meeting.currentChat = {name: $scope.meeting.currentUser.name, message: $scope.chatInput};
-            $scope.meeting.chats.push($scope.meeting.currentChat);
+            $scope.meeting.chats.push($scope.meeting.currentChat)
             Meeting.updateChats($scope.meeting)
                 .success(function(data){
-                    socket.emit('createNote', $scope.meeting.currentChat);
+                    socket.emit('createChat', $scope.meeting.currentChat);
                     $scope.chatInput = ""; $scope.meeting.currentChat = {};
                 });
 
         };
+
+        socket.on('onCreateChat', function(data){
+            $scope.meeting.chats.push(data);
+        });
 
     });
