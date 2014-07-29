@@ -48,15 +48,12 @@ body {
     font-weight: 500;
     font-family: inherit;
 }
-
 .myTimerDisplay{
     /*padding-right: 25px;*/
 }
-
 .sticky-note-create {
     position: absolute;
 }
-
 .sticky-note .title {
     background: transparent;
     border: none;
@@ -72,7 +69,6 @@ body {
     display: block;
     width: 100%; /*added to make the inputs to take up the full size*/
 }
-
 #sides{
     background-color: black;
     position:fixed;
@@ -82,7 +78,6 @@ body {
     bottom: 0px;
     right: 0px;
 }
-
 .container1 {
     position:fixed;
     background-position:center;
@@ -96,7 +91,6 @@ body {
     bottom: 55px;
     right: 55px;
 }
-
 .container2 {
     display: block;
     /*this will help in aligning center horizontally*/
@@ -110,21 +104,6 @@ body {
     overflow:hidden;
 }
 /* Side Menu */
-#sidebar-chat {
-    margin-right: -500px;
-    right: 0px;
-    width: 500px;
-    background: #000;
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
-    z-index: 1000;
-    -webkit-transition: all 0.8s ease 0s;
-    -moz-transition: all 0.8s ease 0s;
-    -ms-transition: all 0.8s ease 0s;
-    -o-transition: all 0.8s ease 0s;
-    transition: all 0.8s ease 0s;
-}
 #sidebar-wrapper {
     margin-right: -250px;
     right: 0;
@@ -156,10 +135,102 @@ body {
     -o-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
 }
-
-
 .setting-sidebar-li{
     margin:15px;
+}
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.sidebar-nav li {
+    line-height: 40px;
+    text-indent: 20px;
+}
+.sidebar-nav li a {
+    color: #999999;
+    display: block;
+    text-decoration: none;
+}
+.sidebar-nav li a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+    text-decoration: none;
+}
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+.sidebar-nav > .sidebar-brand {
+    height: 55px;
+    line-height: 55px;
+    font-size: 18px;
+}
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+#menu-toggle {
+    top: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+}
+#sidebar-wrapper.active {
+    right: 250px;
+    width: 250px;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+#setting-sidebar-wrapper.active {
+    right: 250px;
+    width: 250px;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+.toggle {
+    margin: 5px 5px 0 0;
+}
+.sideBarLabel{
+    margin: 0px;
+    text-align:left;
+    color:#999999 ;
+    text-indent: -20px;
+}
+/*Chat Menu */
+#sidebar-chat {
+    margin-right: -500px;
+    right: 0px;
+    width: 500px;
+    background: #000;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    -webkit-transition: all 0.8s ease 0s;
+    -moz-transition: all 0.8s ease 0s;
+    -ms-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+}
+#menu-chat {
+    top: 0;
+    right: 55px;
+    position: fixed;
+    z-index: 1;
+    background-color:green;
 }
 .sidebar-nav-chat {
     position: absolute;
@@ -180,28 +251,23 @@ body {
     display: block;
     text-decoration: none;
 }
-
 .sidebar-nav-chat li a:hover {
     color: #fff;
     background: rgba(255,255,255,0.2);
     text-decoration: none;
 }
-
 .sidebar-nav-chat li a:active,
 .sidebar-nav-chat li a:focus {
     text-decoration: none;
 }
-
 .sidebar-nav-chat > .sidebar-brand {
     height: 55px;
     line-height: 55px;
     font-size: 18px;
 }
-
 .sidebar-nav-chat > .sidebar-brand a {
     color: #999999;
 }
-
 .sidebar-nav-chat > .sidebar-brand a:hover {
     color: #fff;
     background: none;
@@ -216,7 +282,15 @@ body {
     padding:5px;
     font-family:Tahoma,sans-serif;
 }
-
+#sidebar-chat.active {
+    right: 500px;
+    width: 500px;
+    -webkit-transition: all 0.8s ease 0s;
+    -moz-transition: all 0.8s ease 0s;
+    -ms-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.4s ease 0s;
+}
 #chat-input{
     margin-top: 0px !important;
     width:440px;
@@ -232,113 +306,12 @@ body {
 div.center{
     margin-left:auto !important;
     margin-right:auto !important;
-
 }
-
-
-
-.sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar-nav li {
-    line-height: 40px;
-    text-indent: 20px;
-}
-
-.sidebar-nav li a {
-    color: #999999;
-    display: block;
-    text-decoration: none;
-}
-
-.sidebar-nav li a:hover {
-    color: #fff;
-    background: rgba(255,255,255,0.2);
-    text-decoration: none;
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-    height: 55px;
-    line-height: 55px;
-    font-size: 18px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
-    background: none;
-}
-
-#menu-toggle {
-    top: 0;
-    right: 0;
-    position: fixed;
-    z-index: 1;
-}
-#menu-chat {
-    top: 0;
-    right: 55px;
-    position: fixed;
-    z-index: 1;
-    background-color:green;
-}
-
-#sidebar-wrapper.active {
-    right: 250px;
-    width: 250px;
-    -webkit-transition: all 0.4s ease 0s;
-    -moz-transition: all 0.4s ease 0s;
-    -ms-transition: all 0.4s ease 0s;
-    -o-transition: all 0.4s ease 0s;
-    transition: all 0.4s ease 0s;
-}
-
-#sidebar-chat.active {
-    right: 500px;
-    width: 500px;
-    -webkit-transition: all 0.8s ease 0s;
-    -moz-transition: all 0.8s ease 0s;
-    -ms-transition: all 0.8s ease 0s;
-    -o-transition: all 0.8s ease 0s;
-    transition: all 0.4s ease 0s;
-}
-
-
-#setting-sidebar-wrapper.active {
-    right: 250px;
-    width: 250px;
-    -webkit-transition: all 0.4s ease 0s;
-    -moz-transition: all 0.4s ease 0s;
-    -ms-transition: all 0.4s ease 0s;
-    -o-transition: all 0.4s ease 0s;
-    transition: all 0.4s ease 0s;
-}
-
 #sendBtn{
     width:440px;
 }
-.toggle {
-    margin: 5px 5px 0 0;
-}
-
-.sideBarLabel{
-
-    margin: 0px;
+#inputStyle{
     text-align:left;
-    color:#999999 ;
-    text-indent: -20px;
+    color:white;
+    text-size:15px;
 }
