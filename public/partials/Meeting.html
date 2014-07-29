@@ -226,8 +226,14 @@
 <!-- Custom JavaScript for the Side Chatting and Smooth Scrolling -->
 <script>
     $('#chat').stop().animate({
-        scrollTop: $("#chat")[0].scrollHeight
+        scrollTop: $("#chat")[0].scrollHeight*800
     }, 800);
+
+    $("#sendBtn").click(function(e) {
+        $('#chat').stop().animate({
+            scrollTop: $("#chat")[0].scrollHeight*800
+        }, 800);
+    });
 
 
     $("#menu-chat").click(function(e) {

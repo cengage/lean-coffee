@@ -274,8 +274,9 @@ body {
 }
 .chat-display {
     margin-top: 0px !important;
+    position:absolute;
     overflow-y:scroll;
-    height:400px;
+    height:450%;
     width:88%;
     margin:30px;
     resize:none;
@@ -294,6 +295,8 @@ body {
 }
 #chat-input{
     margin-top: 0px !important;
+    position: absolute;
+    top: 650%;
     width:440px;
     margin:30px;
     height:50px;
@@ -310,6 +313,9 @@ div.center{
 }
 #sendBtn{
     width:440px;
+    position: absolute;
+    top: 800%;
+    left: 30px;
 }
 #inputStyle{
     text-align:left;
