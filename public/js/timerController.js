@@ -3,7 +3,6 @@ angular.module('timerController', [])
     {
         var timeCard=0; var extendedTime =0; var votes = 0;
 
-
         $scope.$watch(function () { return timerData.getTimerCounter(); }, function (newValue) {
             if (newValue) {timeCard = newValue;
                 $scope.timestuff="";
@@ -22,6 +21,10 @@ angular.module('timerController', [])
             setInterval(function(){
                 if (timerData.getMyVoteCounter() >0 && $scope.timercounter==0) {
                     timerData.setMyVoteCounter(0);
+                    //$scope.voteThisNote = 0;
+                    //console.log("$scope.voteThisNote : "+$scope.voteThisNote);
+                    //console.log($scope);
+
                     Meeting.getMeeting($routeParams.meetingId)
                         .success(function (data) {
                             timeCard = data.configurations.timePerTopic;
@@ -35,6 +38,7 @@ angular.module('timerController', [])
                             var seconds = $scope.timercounter % 60;
                             $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds < 10 ? "0" + seconds : seconds);
                             timerData.setMyVoteCounter(0);
+
                         })
                         .error(function (err) {$location.path('/Meeting');
                             alert("This is not a valid meeting, please check the link")

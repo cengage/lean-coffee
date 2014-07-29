@@ -39,6 +39,11 @@ angular.module('leanNotes.controllers', [])
             if (newValue) timerData.setMyVoteCounter(newValue);
         });
 
+        $scope.$watch(function () { return timerData.getMyVoteCounter(); }, function (newValue) {
+            if (newValue==0) {
+                $scope.voteThisNote=0;
+            };
+        });
         Meeting.getMeeting($routeParams.meetingId)
             .success(function(data){
                 $scope.meeting = data;
