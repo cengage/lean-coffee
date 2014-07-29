@@ -47,18 +47,18 @@
                         <a id="chat-close" href="#" class="btn btn-danger glyphicon glyphicon-arrow-right pull-right toggle"><i class="fa fa-times"></i></a>
                         <li class="sidebar-brand"><a>Chat Box</a>
                         </li>
-                        <form id ="chat">
-                            <li id="chat-display">
-                                <ul>
-                                    <li ng-repeat="chat in meeting.chats">
-                                        <p>{{chat.name}} : {{chat.message}}</p>
+                        <!--<form id ="chat">-->
+                            <div class="chat-display" id ="chat">
+                                <ul class="removeBullets">
+                                    <li class="removeBullets" ng-repeat="chat in meeting.chats">
+                                        <p id ="inputStyle">{{chat.name}} : {{chat.message}}</p>
                                     </li>
                                 </ul>
-                            </li>
+                            </div>
                             <textarea ng-model="chatInput" id="chat-input">
                             </textarea>
                             <center><button class="btn btn-lg btn-primary btn-block" id="sendBtn" ng-click="sendChat()">Send</button></center>
-                        </form>
+                        <!--</form>-->
                     </ul>
                 </div>
                 <!-- Chat menu -->
@@ -157,11 +157,11 @@
                 </div>
 
 
-                <!--&lt;!&ndash; begin htmlcommentbox.com &ndash;&gt;-->
+                <!--<!-- begin htmlcommentbox.com -->
                 <!--<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Box</a> is loading comments...</div>-->
                 <!--<link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />-->
-                <!--<script type="text/javascript" id="hcb"> /*&lt;!&ndash;*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=(""+window.location).replace(/'/g,"%27") || hcb_user.PAGE, h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*&ndash;&gt;*/ </script>-->
-                <!--&lt;!&ndash; end htmlcommentbox.com &ndash;&gt;-->
+                <!--<script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=(""+window.location).replace(/'/g,"%27") || hcb_user.PAGE, h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->
+                <!-- end htmlcommentbox.com -->
 
 
 
@@ -225,6 +225,11 @@
 </script>
 <!-- Custom JavaScript for the Side Chatting and Smooth Scrolling -->
 <script>
+    $('#chat').stop().animate({
+        scrollTop: $("#chat")[0].scrollHeight
+    }, 800);
+
+
     $("#menu-chat").click(function(e) {
         e.preventDefault();
         $("#sidebar-chat").toggleClass("active");
