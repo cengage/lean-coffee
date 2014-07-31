@@ -71,6 +71,9 @@ angular.module('leanNotes.controllers', [])
                 alert("This is not a valid meeting, please check the link")
             });
 
+        socket.on('connect', function (data) {
+            socket.emit('joinMeeting', $routeParams.meetingId );
+        });
 
         // Incoming
         socket.on('onNoteCreated', function(data) {
