@@ -95,7 +95,8 @@ angular.module('timerController', [])
 
         $scope.handlePlay = function(){
             $scope.onTimeout = function(){
-                if((($scope.timercounter%5)==0)&& $scope.timercounter!=0)
+//                if((($scope.timercounter%5)==0)&& $scope.timercounter!=0)
+                if($scope.timercounter!=0)
                 {
                     //$scope.handleSyncTime($scope.timercounter);
                     //console.log("I should be seen every 5 seconds " + $scope.timercounter);
