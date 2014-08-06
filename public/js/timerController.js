@@ -3,7 +3,7 @@ angular.module('timerController', [])
     {
         var timeCard=0; var extendedTime =0; var votes = 0;
 
-        $scope.$watch(function () { return timerData.getTimerCounter(); }, function (newValue) {
+        $scope.$watch(function () { return timerData.getTimerCounter(); }, function (newValue) {console.log('I should be called every second');
             if (newValue) {timeCard = newValue;
                 $scope.timestuff="";
                 $scope.timercounter = parseFloat( timeCard) * 60; // at the place of the number one; we should place the user entered value for time/card
