@@ -190,6 +190,7 @@ angular.module('leanNotes.controllers', [])
                 alert('Please enter Username before creating a topic');
             }else {
                 $('#noteInitial').show();
+                $('#title').focus();
             }
         };
 
