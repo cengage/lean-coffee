@@ -15,6 +15,10 @@ angular.module('leanNotes', [
             templateUrl:'/public/partials/Meeting.html',
             controller:'Main'
         })
+        .when('/meetings_list',{
+            templateUrl:'/public/partials/meetings_list.html',
+            controller:'meetings_list'
+        })
         .when('/',{
             templateUrl:'/public/partials/createMeet.html',
             controller:'mainController'

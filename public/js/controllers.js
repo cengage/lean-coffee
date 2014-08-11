@@ -20,6 +20,16 @@ angular.module('meetingController', [])
                     console.log(err);
                 });
         };
+    })
+
+    .controller('meetings_list', function($scope, Meeting){
+
+        $scope.meetings = [];
+        Meeting.getMeetingsList()
+            .success(function(meetings){
+                $scope.meetings = meetings;
+            });
+
     });
 
 angular.module('leanNotes.controllers', [])

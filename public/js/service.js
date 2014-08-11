@@ -14,6 +14,9 @@ angular.module('meetingService', [])
                 getMeeting: function(meetingId) {
                     return $http.get('/api/meeting/'+ meetingId);
                 },
+                getMeetingsList: function() {
+                    return $http.get('/api/meetings/');
+                },
                 updateUsers : function(meeting) {
                     return $http.put('/api/user', meeting);
                 },

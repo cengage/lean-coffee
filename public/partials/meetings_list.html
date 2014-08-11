@@ -1,0 +1,33 @@
+<div class="jumbotron text-center">
+    <h1>Lean Coffee Meetings List</h1>
+</div>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+        </div>
+    </form>
+    <!--<div class="panel-heading">Panel heading</div>-->
+
+    <!-- Table -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Initiator Name</th>
+            <th>Meeting Name</th>
+            <th>Link to Meeting</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="meeting in meetings | filter: searchText">
+            <td>{{meeting.initiatorName}}</td>
+            <td>
+                {{meeting.meetingName}}
+            </td>
+            <td><a href="http://lean-coffee.herokuapp.com/#/Meeting/{{meeting._id}}">Go to Meeting</a> </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
