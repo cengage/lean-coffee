@@ -106,8 +106,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h2><span class="label label-primary">Ready <span class="badge">{{(meeting.topics | filter: {status : "Ready"}).length}}</span></span></h2>
-                <div sticky-note ng-repeat="note in meeting.topics | filter: {status : 'Ready'} | orderBy:'votes':true" note="note" class="alert alert-success sticky-note">
+                <h2>
+                    <span class="label label-primary">Ready <span class="badge">{{(meeting.topics | filter: {status : "Ready"}).length}}</span></span>
+                    <button id="sort" type="button" class="close" ng-click="sortOnVotes()"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Sort</button>
+                </h2>
+                <div sticky-note ng-repeat="note in meeting.topics | filter: {status : 'Ready'} | orderBy:fieldToSortOn:true" note="note" class="alert alert-success sticky-note">
                     <button type="button" class="close" ng-click="deleteNote(note._id)">&times;</button>
                     <button type="button" class="btn btn-primary mybutton" ng-click="changeStatus(note)">Change to Doing</button>
                     <input ng-model="note.title" ng-blur="updateNote(note)" type="text" class="title" >

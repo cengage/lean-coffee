@@ -13,9 +13,6 @@ angular.module('meetingController', [])
             $scope.meeting.votesPerUser = 3;
             Meeting.create($scope.meeting)
                 .success(function(data){
-                    alert("A new meeting is created with id: " + data._id
-                        + "\n"+"Meeting Name: "+$scope.meeting.meetingName
-                        + "\n"+"Initiator Name: "+$scope.meeting.initiatorName);
                     $scope.meeting = {};
                     $location.path('/Meeting/' + data._id);
                 })
@@ -33,6 +30,7 @@ angular.module('leanNotes.controllers', [])
         $scope.meeting.chats = [];
         $scope.voteThisNote =0;
         var currentUser = {};
+        $scope.fieldToSortOn = '-_id';
 
         //a $watch to watch for any changes to meeting.configurations.timePerTopic and share it across the variables
         $scope.$watch('meeting.configurations.timePerTopic', function (newValue) {
@@ -375,5 +373,14 @@ angular.module('leanNotes.controllers', [])
         socket.on('onCreateChat', function(data){
             $scope.meeting.chats.push(data);
         });
+
+        $scope.sortOnVotes = function(){
+            if($scope.fieldToSortOn == 'votes'){
+                $scope.fieldToSortOn = '-_id';
+            }
+            else{
+                $scope.fieldToSortOn = 'votes';
+            }
+        };
 
     });
