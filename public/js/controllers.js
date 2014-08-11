@@ -7,6 +7,10 @@ angular.module('meetingController', [])
     .controller('mainController', function($scope, $http, Meeting, $location) {
 
         $scope.generateId = function(){
+            //Default config values
+            $scope.meeting.timePerTopic = 5;
+            $scope.meeting.extraTimePerTopic = 2;
+            $scope.meeting.votesPerUser = 3;
             Meeting.create($scope.meeting)
                 .success(function(data){
                     alert("A new meeting is created with id: " + data._id
