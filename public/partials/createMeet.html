@@ -2,9 +2,9 @@
     <div class="container1">
         <div class="container2" ng-controller="mainController">
             <form name="meetingCreation" ng-submit="generateId()">
-                <h2 class="form-signin-heading">Welcome to CollabOps!</h2>
-
-                <h3 id="instruction1">Please create your meeting by filling out the information below</h3>
+                <h2 class="form-signin-heading">Lean Coffee Meetings</h2>
+                <h3 id="instruction1">Click to see <a href="http://lean-coffee.herokuapp.com/#/meetings_list">Meetings List</a></h3>
+                <!--<h3 id="instruction2">Please create your meeting by filling out the information below</h3>-->
                 <br><br>
                 <input ng-model = "meeting.initiatorName" type="text" class="form-control" placeholder="Initiator Name" required autofocus>
                 <input ng-model = "meeting.meetingName" type="text" class="form-control" placeholder="Meeting Name" required>
@@ -12,7 +12,7 @@
                 <!--<input ng-model = "meeting.extraTimePerTopic" type="number" min="0.5" step="0.5"  class="form-control" placeholder="Extra Time" required>-->
                 <!--<input ng-model = "meeting.votesPerUser" type="number" step="1"  min="1" class="form-control" placeholder="Votes per user" required>-->
                 <br><br>
-                <button class="btn btn-lg btn-primary btn-block" id="createMeeting">CREATE</button>
+                <button class="btn btn-lg btn-primary btn-block" id="createMeeting">Create Meeting</button>
             </form>
         </div>
     </div>
