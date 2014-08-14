@@ -4,7 +4,7 @@ var express = require('express'),
     io = require('socket.io').listen(server),
     mongoose = require('mongoose');
 //    schema = mongoose.Schema;
-    var socketsDict = new Array();
+var socketsDict = new Array();
 
 var database = require('./public/js/database');
 
@@ -21,9 +21,12 @@ app.configure('development',function() {
     app.use(express.errorHandler());
     app.use(express.bodyParser()); 							// pull information from html in POST
     app.use(express.methodOverride()); 						// simulate DELETE and PUT
-  });
+});
 
 require('./public/js/routes.js')(app);
+var time_counter = 0;
+var myTime =0;
+var timer_id=0;
 io.sockets.on('connection', function(socket) {
     //detect users
     //console.log('a user connected');
@@ -31,7 +34,7 @@ io.sockets.on('connection', function(socket) {
     //console.log('I am '+socket.id +'!');
 
     socket.on('joinMeeting', function (meetingId) {
-        console.log("Meeting ID is : "+meetingId + " "+socket.id);
+       // console.log("Meeting ID is : "+meetingId + " "+socket.id);
 //        socket.set('room', meetingId, function() { console.log('room ' + meetingId + ' saved'); } );
         socketsDict[socket.id] = meetingId;
         socket.join(meetingId);
@@ -58,7 +61,7 @@ io.sockets.on('connection', function(socket) {
     });
 
     socket.on('createNote', function(data) {
-       // console.log('emit note creating event');
+        // console.log('emit note creating event');
         socket.broadcast.to(socketsDict[socket.id]).emit('onNoteCreated', data);
     });
 
@@ -111,10 +114,43 @@ io.sockets.on('connection', function(socket) {
         socket.broadcast.to(socketsDict[socket.id]).emit('onstop', data);
     });
 
-    socket.on('SyncTime', function(data){
-        socket.broadcast.to(socketsDict[socket.id]).emit('onSyncTime', data);
-    });
 
+    socket.on('SyncRealTimePlay',function(){
+        handleServerPlay();
+    });
+    socket.on('SyncRealTimePause',function(){
+        handleServerPause();
+    });
+    socket.on('SyncRealTimeStop',function(){
+        handleServerStop();
+    });
+    socket.on('NewTimerCounter',function(data){
+        console.log("timerdata is :" + data);
+        time_counter = data;
+        myTime =data;
+    });
+    var handleServerPlay = function(){
+        timer_id= setInterval(function () {
+            if(time_counter>=0){
+                io.sockets.in(socketsDict[socket.id]).emit('SyncTheTimeNow',time_counter);
+                console.log("time_counter :"+ time_counter);
+                time_counter--;}
+        }, 1000);
+
+    };
+    var handleServerPause = function(){
+        clearInterval(timer_id);
+        console.log("time_counter paused");
+        socket.broadcast.to(socketsDict[socket.id]).emit('SyncTheTimeNow',time_counter);
+        socket.broadcast.to(socketsDict[socket.id]).emit('SyncTheTimePaused',time_counter);
+    };
+    var handleServerStop = function(){
+        time_counter =myTime;
+        clearInterval(timer_id);
+        console.log("time_counter stopped and reset to :" + time_counter);
+        socket.broadcast.to(socketsDict[socket.id]).emit('SyncTheTimeNow',time_counter);
+        socket.broadcast.to(socketsDict[socket.id]).emit('SyncTheTimeStopped',time_counter);
+    };
 
     socket.on('ResetVoteThisNote', function(data){
         socket.broadcast.to(socketsDict[socket.id]).emit('onResetVoteThisNote', data);

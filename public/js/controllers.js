@@ -46,6 +46,10 @@ angular.module('leanNotes.controllers', [])
         $scope.$watch('meeting.configurations.timePerTopic', function (newValue) {
             if (newValue) timerData.setTimerCounter(newValue);
         });
+        $scope.$watch('meeting.configurations.extraTimePerTopic', function (newValue) {
+            if (newValue) timerData.setExtendedTimerCounter(newValue);
+        });
+
 
         $scope.$watch('voteThisNote', function (newValue) {
             if (newValue) timerData.setMyVoteCounter(newValue);

@@ -2,29 +2,33 @@ angular.module('timerController', [])
     .controller('myController',function($scope,$timeout,socket,$routeParams,Meeting,timerData)
     {
         var timeCard=0; var extendedTime =0; var votes = 0;
-
-        $scope.$watch(function () { return timerData.getTimerCounter(); }, function (newValue) {console.log('I should be called every second');
-            if (newValue) {timeCard = newValue;
+        var time_counter = 0;
+        var myTime = 0;
+        var timer_id=0;
+        $scope.$watch(function () { return timerData.getTimerCounter(); }, function (newValue) {
+            if (newValue) {time_counter = newValue;
                 $scope.timestuff="";
-                $scope.timercounter = parseFloat( timeCard) * 60; // at the place of the number one; we should place the user entered value for time/card
+                $scope.timercounter = parseFloat(time_counter) * 60; // at the place of the number one; we should place the user entered value for time/card
                 $scope.MinTimeLimit= 60; // at the place of the number 0.5; we should place the user entered value for warning for time left
                 var hours = parseInt( $scope.timercounter / 3600 ) % 24;
                 var minutes = parseInt( $scope.timercounter / 60 ) % 60;
                 var seconds = $scope.timercounter % 60;
                 $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
-
+                myTime = $scope.timercounter;
+                socket.emit('NewTimerCounter',(parseFloat(time_counter) * 60));
+                console.log("I should have emitted the counter timer swag");
             }
         });
+        $scope.$watch(function () { return timerData.getExtendedTimerCounter(); }, function (newValue) {
+            if (newValue) {$scope.MinTimeLimit = parseFloat(newValue) * 60;;
+            }
 
+        });
         $scope.$watch(function () { return timerData.getMyVoteCounter(); }, function (newValue) {
             // console.log("The Value is " + newValue);
             setInterval(function(){
                 if (timerData.getMyVoteCounter() >0 && $scope.timercounter==0) {
                     timerData.setMyVoteCounter(0);
-                    //$scope.voteThisNote = 0;
-                    //console.log("$scope.voteThisNote : "+$scope.voteThisNote);
-                    //console.log($scope);
-
                     Meeting.getMeeting($routeParams.meetingId)
                         .success(function (data) {
                             timeCard = data.configurations.timePerTopic;
@@ -32,12 +36,16 @@ angular.module('timerController', [])
                             votes = data.configurations.votesPerUser;
                             $scope.timestuff = "";
                             $scope.timercounter = parseFloat(extendedTime) * 60; // at the place of the number one; we should place the user entered value for time/card
-                            $scope.MinTimeLimit = 60; // at the place of the number 0.5; we should place the user entered value for warning for time left
+                            $scope.MinTimeLimit = parseFloat(extendedTime) * 60; // at the place of the number 0.5; we should place the user entered value for warning for time left
                             var hours = parseInt($scope.timercounter / 3600) % 24;
                             var minutes = parseInt($scope.timercounter / 60) % 60;
                             var seconds = $scope.timercounter % 60;
                             $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds < 10 ? "0" + seconds : seconds);
                             timerData.setMyVoteCounter(0);
+                            socket.emit('SyncRealTimeStop');
+                            socket.emit('NewTimerCounter',($scope.MinTimeLimit));
+
+                            socket.emit('SyncRealTimePlay');
 
                         })
                         .error(function (err) {$location.path('/Meeting');
@@ -48,118 +56,137 @@ angular.module('timerController', [])
 
         });
 
-        Meeting.getMeeting($routeParams.meetingId)
-            .success(function(data){
-                timeCard = data.configurations.timePerTopic;
-                extendedTime= data.configurations.extraTimePerTopic;
-                votes = data.configurations.votesPerUser;
-                $scope.timestuff="";
-                $scope.timercounter = parseFloat( timeCard) * 60; // at the place of the number one; we should place the user entered value for time/card
-                $scope.MinTimeLimit= 60; // at the place of the number 0.5; we should place the user entered value for warning for time left
-                var hours = parseInt( $scope.timercounter / 3600 ) % 24;
-                var minutes = parseInt( $scope.timercounter / 60 ) % 60;
-                var seconds = $scope.timercounter % 60;
-                $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+        //receiving data
+        socket.on('SyncTheTimeNow',function(data){
+            console.log("STOP! Sync Time!");
+            $scope.handleClientSyncPlay(data);
 
-            })
-            .error(function(err){
-                $location.path('/Meeting');
-                alert("This is not a valid meeting, please check the link")
-            });
-        var mytimeout = 0;
-
-        socket.on('onSyncTime',function(data){
-            $scope.handleSyncTime(data);
-        });
-        socket.on('onplay',function(){
-            $scope.handlePlay();
-        });
-        socket.on('onpause',function(){
-            $scope.handlePause();
-        });
-        socket.on('onstop',function(){
-            $scope.handleStop();
-        });
-
-        $scope.handleSyncTime= function(data){
-            //console.log("#YOLO");
-            if(socket.id!=data.myId)
-                $scope.timercounter  = data.timerData;
-        }
-
-        $scope.play = function(){
-            $scope.handlePlay();
-            console.log("I am played and I have emitted");
-            socket.emit('play');
-        }
-
-        $scope.handlePlay = function(){
-            $scope.onTimeout = function(){
-//                if((($scope.timercounter%5)==0)&& $scope.timercounter!=0)
-                if($scope.timercounter!=0)
-                {
-                    //$scope.handleSyncTime($scope.timercounter);
-                    //console.log("I should be seen every 5 seconds " + $scope.timercounter);
-                    var tempdata ={
-                        myId : socket.id, timerData:$scope.timercounter
-                    };
-                    socket.emit('SyncTime',tempdata);
-                }
-                if($scope.timercounter <= $scope.MinTimeLimit && $scope.timercounter!=0)
-                {
-                    $(".myTimerDisplay").css("color","red").fadeOut("slow");
-                    $(".myTimerDisplay").css("color","red").fadeIn("slow");
-                }
-                if($scope.timercounter!=0)
-                {
-                    $scope.timercounter--;
-                    var hours = parseInt( $scope.timercounter / 3600 ) % 24;
-                    var minutes = parseInt( $scope.timercounter / 60 ) % 60;
-                    var seconds = $scope.timercounter % 60;
-                    $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
-                    mytimeout = $timeout($scope.onTimeout,1000);
-                }
-                else
-                {
-                    $timeout.cancel(mytimeout);
-                }
-            }
-            mytimeout = $timeout($scope.onTimeout,1000);
             $("#startBtn").hide("slow");
             $("#pauseBtn").show("slow");
             $("#stopBtn").show("slow");
-
-
-
-        }
-        $scope.pause = function(){
-            $scope.handlePause();
-            console.log("I have paused and I have emitted");
-            socket.emit('pause');
-        }
-        $scope.handlePause = function(){
-            $timeout.cancel(mytimeout);
+        });
+        socket.on('SyncTheTimePaused',function(){
             $("#startBtn").show("slow");
             $("#pauseBtn").hide("slow");
             $("#stopBtn").show("slow");
+        });
+        socket.on('SyncTheTimeStopped',function(){
+
+            $("#startBtn").show("slow");
+            $("#pauseBtn").show("slow");
+            $("#stopBtn").hide("slow");
+        });
+
+        //emitting data
+        $scope.play = function(){
+            timer_id= setInterval(function () {
+                if(time_counter>=0){
+                    time_counter--;}
+            }, 1000);
+            $("#startBtn").hide("slow");
+            $("#pauseBtn").show("slow");
+            $("#stopBtn").show("slow");
+            socket.emit('SyncRealTimePlay');
+            console.log('I have clicked play!');
+        }
+        $scope.pause = function(){
+            socket.emit('SyncRealTimePause');
+            clearInterval(timer_id);
+            $scope.handleClientSyncPlay(time_counter);
+            console.log('I have clicked pause!');
+            $("#startBtn").show("slow");
+            $("#pauseBtn").hide("slow");
+            $("#stopBtn").show("slow");
+
         }
         $scope.stop = function(){
+            socket.emit('SyncRealTimeStop');
+            socket.emit('NewTimerCounter',(myTime));
+            clearInterval(timer_id);
+            time_counter =myTime;
+            $scope.handleClientSyncPlay(time_counter);
 
-            $scope.handleStop();
-            console.log("I have stopped and I have emitted");
-            socket.emit('stop');
+            console.log('I have clicked stop!');
+            $("#startBtn").show("slow");
+            $("#pauseBtn").show("slow");
+            $("#stopBtn").hide("slow");
+            $(".myTimerDisplay").css("color","black").finish();
         }
-        $scope.handleStop = function(){
-            $timeout.cancel(mytimeout);
-            $scope.timercounter = timeCard*60;
+
+        //data handlers
+        $scope.handleClientSyncPlay = function(data){
+            $scope.timercounter = data;
             var hours = parseInt( $scope.timercounter / 3600 ) % 24;
             var minutes = parseInt( $scope.timercounter / 60 ) % 60;
             var seconds = $scope.timercounter % 60;
             $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+            console.log( "$scope.timercounter :"+ $scope.timercounter);
+            console.log( "$scope.MinTimeLimit :"+$scope.MinTimeLimit);
+            if($scope.timercounter <= $scope.MinTimeLimit && $scope.timercounter!=0){
+                $(".myTimerDisplay").css("color","red").fadeOut("slow");
+                $(".myTimerDisplay").css("color","red").fadeIn("slow");
+            }
 
-            $("#startBtn").show("slow");
-            $("#stopBtn").hide("slow");
-            $("#pauseBtn").show("slow");
-            $(".myTimerDisplay").css("color","black");
-        }
+        };
+
+//        $scope.handlePlay = function(){
+//            $scope.onTimeout = function(){
+////                if((($scope.timercounter%5)==0)&& $scope.timercounter!=0)
+//                if($scope.timercounter!=0)
+//                {
+//                    //$scope.handleSyncTime($scope.timercounter);
+//                    //console.log("I should be seen every 5 seconds " + $scope.timercounter);
+//                    var tempdata ={
+//                        myId : socket.id, timerData:$scope.timercounter
+//                    };
+//                    socket.emit('SyncTime',tempdata);
+//                }
+//                if($scope.timercounter <= $scope.MinTimeLimit && $scope.timercounter!=0)
+//                {
+//                    $(".myTimerDisplay").css("color","red").fadeOut("slow");
+//                    $(".myTimerDisplay").css("color","red").fadeIn("slow");
+//                }
+//                if($scope.timercounter!=0)
+//                {
+//                    $scope.timercounter--;
+//                    var hours = parseInt( $scope.timercounter / 3600 ) % 24;
+//                    var minutes = parseInt( $scope.timercounter / 60 ) % 60;
+//                    var seconds = $scope.timercounter % 60;
+//                    $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+//                    mytimeout = $timeout($scope.onTimeout,1000);
+//                }
+//                else
+//                {
+//                    $timeout.cancel(mytimeout);
+//                }
+//            }
+//            mytimeout = $timeout($scope.onTimeout,1000);
+//            $("#startBtn").hide("slow");
+//            $("#pauseBtn").show("slow");
+//            $("#stopBtn").show("slow");
+//
+//
+//
+//        }
+//
+//        $scope.handlePause = function(){
+//            $timeout.cancel(mytimeout);
+//            $("#startBtn").show("slow");
+//            $("#pauseBtn").hide("slow");
+//            $("#stopBtn").show("slow");
+//        }
+//
+//        $scope.handleStop = function(){
+//            $timeout.cancel(mytimeout);
+//            $scope.timercounter = timeCard*60;
+//            var hours = parseInt( $scope.timercounter / 3600 ) % 24;
+//            var minutes = parseInt( $scope.timercounter / 60 ) % 60;
+//            var seconds = $scope.timercounter % 60;
+//            $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
+//
+//            $("#startBtn").show("slow");
+//            $("#stopBtn").hide("slow");
+//            $("#pauseBtn").show("slow");
+//            $(".myTimerDisplay").css("color","black");
+//        }
     });

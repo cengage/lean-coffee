@@ -55,7 +55,7 @@ angular.module('meetingService', [])
     }).factory('timerData', function(){
     var data =
     {
-        timerCounter: '', myVoteCounter:''
+        timerCounter: '', myVoteCounter:'', extendedTimerCounter:''
     };
 
     return {
@@ -70,6 +70,12 @@ angular.module('meetingService', [])
         },
         setTimerCounter: function (timercount) {
             data.timerCounter = timercount;
+        },
+        getExtendedTimerCounter: function () {
+            return data.extendedTimerCounter;
+        },
+        setExtendedTimerCounter: function (extendedTimerCount) {
+            data.extendedTimerCounter = extendedTimerCount;
         }
 
     };
