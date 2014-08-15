@@ -15,6 +15,7 @@ angular.module('timerController', [])
                 var seconds = $scope.timercounter % 60;
                 $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
                 myTime = $scope.timercounter;
+                if(myTime==0)
                 socket.emit('NewTimerCounter',(parseFloat(time_counter) * 60));
                 console.log("I should have emitted the counter timer swag");
             }

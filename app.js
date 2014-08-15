@@ -117,6 +117,7 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('SyncRealTimePlay',function(){
         handleServerPlay();
+
     });
     socket.on('SyncRealTimePause',function(){
         handleServerPause();
