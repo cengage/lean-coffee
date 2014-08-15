@@ -17,7 +17,6 @@ angular.module('timerController', [])
                 myTime = $scope.timercounter;
                 if(myTime==0)
                 socket.emit('NewTimerCounter',(parseFloat(time_counter) * 60));
-                console.log("I should have emitted the counter timer swag");
             }
         });
         $scope.$watch(function () { return timerData.getExtendedTimerCounter(); }, function (newValue) {
@@ -129,65 +128,4 @@ angular.module('timerController', [])
             }
 
         };
-
-//        $scope.handlePlay = function(){
-//            $scope.onTimeout = function(){
-////                if((($scope.timercounter%5)==0)&& $scope.timercounter!=0)
-//                if($scope.timercounter!=0)
-//                {
-//                    //$scope.handleSyncTime($scope.timercounter);
-//                    //console.log("I should be seen every 5 seconds " + $scope.timercounter);
-//                    var tempdata ={
-//                        myId : socket.id, timerData:$scope.timercounter
-//                    };
-//                    socket.emit('SyncTime',tempdata);
-//                }
-//                if($scope.timercounter <= $scope.MinTimeLimit && $scope.timercounter!=0)
-//                {
-//                    $(".myTimerDisplay").css("color","red").fadeOut("slow");
-//                    $(".myTimerDisplay").css("color","red").fadeIn("slow");
-//                }
-//                if($scope.timercounter!=0)
-//                {
-//                    $scope.timercounter--;
-//                    var hours = parseInt( $scope.timercounter / 3600 ) % 24;
-//                    var minutes = parseInt( $scope.timercounter / 60 ) % 60;
-//                    var seconds = $scope.timercounter % 60;
-//                    $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
-//                    mytimeout = $timeout($scope.onTimeout,1000);
-//                }
-//                else
-//                {
-//                    $timeout.cancel(mytimeout);
-//                }
-//            }
-//            mytimeout = $timeout($scope.onTimeout,1000);
-//            $("#startBtn").hide("slow");
-//            $("#pauseBtn").show("slow");
-//            $("#stopBtn").show("slow");
-//
-//
-//
-//        }
-//
-//        $scope.handlePause = function(){
-//            $timeout.cancel(mytimeout);
-//            $("#startBtn").show("slow");
-//            $("#pauseBtn").hide("slow");
-//            $("#stopBtn").show("slow");
-//        }
-//
-//        $scope.handleStop = function(){
-//            $timeout.cancel(mytimeout);
-//            $scope.timercounter = timeCard*60;
-//            var hours = parseInt( $scope.timercounter / 3600 ) % 24;
-//            var minutes = parseInt( $scope.timercounter / 60 ) % 60;
-//            var seconds = $scope.timercounter % 60;
-//            $scope.timestuff = (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes) + " : " + (seconds  < 10 ? "0" + seconds : seconds);
-//
-//            $("#startBtn").show("slow");
-//            $("#stopBtn").hide("slow");
-//            $("#pauseBtn").show("slow");
-//            $(".myTimerDisplay").css("color","black");
-//        }
     });
