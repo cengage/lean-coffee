@@ -29,6 +29,11 @@ angular.module('meetingController', [])
             .success(function(meetings){
                 $scope.meetings = meetings;
             });
+        $scope.meetings.createdDateDisplayFormat = convertToDisplayFormat($scope.meetings.createdOn);
+
+        function convertToDisplayFormat(date){
+            return (date.getMonth()+1)+"/"+(date.getDate())+"/"+(date.getFullYear());
+        };
 
     });
 
