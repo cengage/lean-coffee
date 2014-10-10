@@ -11,7 +11,7 @@ module.exports = mongoose.model('Meeting', {
         extraTimePerTopic: Number,
         votesPerUser: Number
     },
-    createdAt : { type: String, default: Date.now() },
+    createdOn : { type: String, default: Date.now() },
     users : [
         {
             email : { type: String },

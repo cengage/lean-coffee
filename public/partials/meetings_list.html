@@ -17,6 +17,7 @@
         <tr>
             <th>Initiator Name</th>
             <th>Meeting Name</th>
+            <th>Created On</th>
             <th>Link to Meeting</th>
         </tr>
         </thead>
@@ -26,6 +27,7 @@
             <td>
                 {{meeting.meetingName}}
             </td>
+            <td>{{meeting.createdOn}}</td>
             <td><a href="http://lean-coffee.herokuapp.com/#/Meeting/{{meeting._id}}">Go to Meeting</a> </td>
         </tr>
         </tbody>
